@@ -1,0 +1,4344 @@
+{
+  "meta": {
+    "name": "heuristic",
+    "target": "baselines.heuristic",
+    "stages": [
+      "detect_possessions",
+      "detect_ball_handler",
+      "detect_actions"
+    ],
+    "created": "2026-09-27T17:07:48+00:00"
+  },
+  "settings": {
+    "window_seconds": 1.0,
+    "action_iou_threshold": 0.5,
+    "complete_window_seconds": 2.0,
+    "live_tolerance_seconds": 1.0,
+    "possession_iou_threshold": 0.5
+  },
+  "aggregate": {
+    "possessions": {
+      "status": "scored",
+      "truth": 1564,
+      "detected": 1522,
+      "matched": 877,
+      "precision": 0.5762,
+      "recall": 0.5607,
+      "f1": 0.5683,
+      "frame_team_accuracy": 0.9189,
+      "mean_iou": 0.9099,
+      "boundary_error_s": {
+        "start": {
+          "n": 877,
+          "mean_abs_s": 1.6579,
+          "median_abs_s": 0.04,
+          "p90_abs_s": 4.056,
+          "mse_s2": 35.7161,
+          "rmse_s": 5.9763,
+          "mean_signed_s": -0.3081,
+          "within_0.5s": 0.7674,
+          "within_1s": 0.7811
+        },
+        "end": {
+          "n": 877,
+          "mean_abs_s": 2.0099,
+          "median_abs_s": 0.04,
+          "p90_abs_s": 4.24,
+          "mse_s2": 58.113,
+          "rmse_s": 7.6232,
+          "mean_signed_s": -0.7699,
+          "within_0.5s": 0.7731,
+          "within_1s": 0.797
+        }
+      }
+    },
+    "ball_handler": {
+      "status": "scored",
+      "frames": 590195,
+      "frames_in_touch": 472605,
+      "frame_accuracy": 0.7875,
+      "in_touch_accuracy": 0.811,
+      "no_ball_accuracy": 0.6932,
+      "wrong_teammate_rate": 0.0111,
+      "wrong_team_rate": 0.007,
+      "no_handler_rate": 0.1709
+    },
+    "actions": {
+      "pass": {
+        "status": "scored",
+        "truth": 4513,
+        "detected": 5065,
+        "tp": 3700,
+        "fp": 1365,
+        "fn": 813,
+        "precision": 0.7305,
+        "recall": 0.8199,
+        "f1": 0.7726,
+        "strict_recall": 0.7968,
+        "timing": {
+          "n": 3700,
+          "mean_abs_s": 0.1182,
+          "median_abs_s": 0.08,
+          "p90_abs_s": 0.28,
+          "mse_s2": 0.0366,
+          "rmse_s": 0.1912,
+          "mean_signed_s": -0.0604,
+          "within_0.5s": 0.9638,
+          "within_1s": 1.0
+        },
+        "location_error_ft": {
+          "n": 3700,
+          "mean": 3.0229,
+          "median": 2.6329,
+          "p90": 3.3651
+        },
+        "player_accuracy": 0.9668,
+        "player2_accuracy": 0.9352,
+        "subtype_accuracy": 0.0,
+        "attributable": {
+          "truth": 4513,
+          "tp": 3700,
+          "recall": 0.8199
+        },
+        "team_events": {
+          "truth": 0,
+          "tp": 0,
+          "recall": null
+        },
+        "subsets": {
+          "inbounds": {
+            "truth": 662,
+            "tp": 405,
+            "recall": 0.6118
+          },
+          "not_inbounds": {
+            "truth": 3851,
+            "tp": 3295,
+            "recall": 0.8556
+          },
+          "handoff": {
+            "truth": 403,
+            "tp": 349,
+            "recall": 0.866
+          }
+        },
+        "f1_by_window": {
+          "0.5": 0.7446,
+          "1": 0.7726,
+          "2": 0.7953
+        }
+      },
+      "shot": {
+        "status": "scored",
+        "truth": 1448,
+        "detected": 1295,
+        "tp": 1201,
+        "fp": 94,
+        "fn": 247,
+        "precision": 0.9274,
+        "recall": 0.8294,
+        "f1": 0.8757,
+        "strict_recall": 0.8218,
+        "timing": {
+          "n": 1201,
+          "mean_abs_s": 0.0921,
+          "median_abs_s": 0.04,
+          "p90_abs_s": 0.2,
+          "mse_s2": 0.0225,
+          "rmse_s": 0.1499,
+          "mean_signed_s": -0.0303,
+          "within_0.5s": 0.9792,
+          "within_1s": 1.0
+        },
+        "location_error_ft": {
+          "n": 1186,
+          "mean": 0.682,
+          "median": 0.2664,
+          "p90": 1.8324
+        },
+        "player_accuracy": 0.985,
+        "attributable": {
+          "truth": 1448,
+          "tp": 1201,
+          "recall": 0.8294
+        },
+        "team_events": {
+          "truth": 0,
+          "tp": 0,
+          "recall": null
+        },
+        "subsets": {
+          "made": {
+            "truth": 603,
+            "tp": 505,
+            "recall": 0.8375
+          },
+          "missed": {
+            "truth": 845,
+            "tp": 696,
+            "recall": 0.8237
+          },
+          "fouled": {
+            "truth": 141,
+            "tp": 111,
+            "recall": 0.7872
+          }
+        },
+        "f1_by_window": {
+          "0.5": 0.8575,
+          "1": 0.8757,
+          "2": 0.8983
+        }
+      },
+      "rebound": {
+        "status": "scored",
+        "truth": 739,
+        "detected": 708,
+        "tp": 516,
+        "fp": 192,
+        "fn": 223,
+        "precision": 0.7288,
+        "recall": 0.6982,
+        "f1": 0.7132,
+        "strict_recall": 0.6766,
+        "timing": {
+          "n": 516,
+          "mean_abs_s": 0.3838,
+          "median_abs_s": 0.36,
+          "p90_abs_s": 0.72,
+          "mse_s2": 0.1931,
+          "rmse_s": 0.4394,
+          "mean_signed_s": 0.2506,
+          "within_0.5s": 0.7558,
+          "within_1s": 1.0
+        },
+        "location_error_ft": {
+          "n": 506,
+          "mean": 3.3219,
+          "median": 3.1708,
+          "p90": 5.5039
+        },
+        "player_accuracy": 0.953,
+        "subtype_accuracy": 0.9516,
+        "attributable": {
+          "truth": 669,
+          "tp": 511,
+          "recall": 0.7638
+        },
+        "team_events": {
+          "truth": 70,
+          "tp": 5,
+          "recall": 0.0714
+        },
+        "subsets": {
+          "offensive": {
+            "truth": 220,
+            "tp": 124,
+            "recall": 0.5636
+          },
+          "defensive": {
+            "truth": 519,
+            "tp": 392,
+            "recall": 0.7553
+          },
+          "after_free_throw": {
+            "truth": 34,
+            "tp": 2,
+            "recall": 0.0588
+          }
+        },
+        "average_precision": 0.5833,
+        "f1_by_window": {
+          "0.5": 0.539,
+          "1": 0.7132,
+          "2": 0.792
+        }
+      },
+      "turnover": {
+        "status": "scored",
+        "truth": 245,
+        "detected": 189,
+        "tp": 114,
+        "fp": 75,
+        "fn": 131,
+        "precision": 0.6032,
+        "recall": 0.4653,
+        "f1": 0.5254,
+        "strict_recall": 0.4571,
+        "timing": {
+          "n": 114,
+          "mean_abs_s": 0.2881,
+          "median_abs_s": 0.2,
+          "p90_abs_s": 0.72,
+          "mse_s2": 0.1555,
+          "rmse_s": 0.3943,
+          "mean_signed_s": -0.2467,
+          "within_0.5s": 0.7719,
+          "within_1s": 1.0
+        },
+        "location_error_ft": {
+          "n": 110,
+          "mean": 2.8117,
+          "median": 1.1014,
+          "p90": 5.4667
+        },
+        "player_accuracy": 0.973,
+        "player2_accuracy": 0.9867,
+        "attributable": {
+          "truth": 236,
+          "tp": 111,
+          "recall": 0.4703
+        },
+        "team_events": {
+          "truth": 9,
+          "tp": 3,
+          "recall": 0.3333
+        },
+        "f1_by_window": {
+          "0.5": 0.4055,
+          "1": 0.5254,
+          "2": 0.6498
+        }
+      },
+      "foul": {
+        "status": "scored",
+        "truth": 433,
+        "detected": 339,
+        "tp": 189,
+        "fp": 150,
+        "fn": 244,
+        "precision": 0.5575,
+        "recall": 0.4365,
+        "f1": 0.4896,
+        "strict_recall": 0.4319,
+        "timing": {
+          "n": 189,
+          "mean_abs_s": 0.455,
+          "median_abs_s": 0.44,
+          "p90_abs_s": 0.88,
+          "mse_s2": 0.2904,
+          "rmse_s": 0.5389,
+          "mean_signed_s": 0.3822,
+          "within_0.5s": 0.5397,
+          "within_1s": 1.0
+        },
+        "location_error_ft": {
+          "n": 188,
+          "mean": 2.3964,
+          "median": 1.7626,
+          "p90": 5.464
+        },
+        "player_accuracy": 0.9894,
+        "player2_accuracy": 0.9947,
+        "subtype_accuracy": 0.8624,
+        "attributable": {
+          "truth": 433,
+          "tp": 189,
+          "recall": 0.4365
+        },
+        "team_events": {
+          "truth": 0,
+          "tp": 0,
+          "recall": null
+        },
+        "subsets": {
+          "shooting": {
+            "truth": 148,
+            "tp": 56,
+            "recall": 0.3784
+          },
+          "personal": {
+            "truth": 256,
+            "tp": 125,
+            "recall": 0.4883
+          },
+          "offensive": {
+            "truth": 27,
+            "tp": 8,
+            "recall": 0.2963
+          }
+        },
+        "f1_by_window": {
+          "0.5": 0.2643,
+          "1": 0.4896,
+          "2": 0.5959
+        }
+      },
+      "screen": {
+        "status": "not_attempted",
+        "truth": 2571
+      },
+      "drive": {
+        "status": "not_attempted",
+        "truth": 654
+      },
+      "isolation": {
+        "status": "not_attempted",
+        "truth": 179
+      },
+      "post": {
+        "status": "not_attempted",
+        "truth": 104
+      },
+      "closeout": {
+        "status": "not_attempted",
+        "truth": 592
+      }
+    },
+    "complete_possessions": {
+      "status": "scored",
+      "truth": 1564,
+      "window_seconds": 2.0,
+      "action_types": [
+        "pass",
+        "shot",
+        "rebound",
+        "turnover",
+        "foul"
+      ],
+      "requires_split": true,
+      "split_correct": 0.5607,
+      "all_actions_found": 0.4533,
+      "complete": 0.2967,
+      "all_found_by_type": {
+        "pass": 0.5927,
+        "shot": 0.8323,
+        "rebound": 0.7409,
+        "turnover": 0.5577,
+        "foul": 0.5192
+      }
+    }
+  },
+  "games": {
+    "114086": {
+      "possessions": {
+        "status": "scored",
+        "truth": 151,
+        "detected": 146,
+        "matched": 84,
+        "precision": 0.5753,
+        "recall": 0.5563,
+        "f1": 0.5656,
+        "frame_team_accuracy": 0.9468,
+        "mean_iou": 0.9011,
+        "boundary_error_s": {
+          "start": {
+            "n": 84,
+            "mean_abs_s": 1.2819,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 4.54,
+            "mse_s2": 11.7603,
+            "rmse_s": 3.4293,
+            "mean_signed_s": -0.4305,
+            "within_0.5s": 0.7738,
+            "within_1s": 0.7857
+          },
+          "end": {
+            "n": 84,
+            "mean_abs_s": 1.5548,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 4.12,
+            "mse_s2": 20.7715,
+            "rmse_s": 4.5576,
+            "mean_signed_s": -0.9738,
+            "within_0.5s": 0.7857,
+            "within_1s": 0.8095
+          }
+        }
+      },
+      "ball_handler": {
+        "status": "scored",
+        "frames": 59340,
+        "frames_in_touch": 48460,
+        "frame_accuracy": 0.8335,
+        "in_touch_accuracy": 0.8604,
+        "no_ball_accuracy": 0.7136,
+        "wrong_teammate_rate": 0.0092,
+        "wrong_team_rate": 0.0038,
+        "no_handler_rate": 0.1267
+      },
+      "actions": {
+        "pass": {
+          "status": "scored",
+          "truth": 493,
+          "detected": 537,
+          "tp": 410,
+          "fp": 127,
+          "fn": 83,
+          "precision": 0.7635,
+          "recall": 0.8316,
+          "f1": 0.7961,
+          "strict_recall": 0.8195,
+          "timing": {
+            "n": 410,
+            "mean_abs_s": 0.1181,
+            "median_abs_s": 0.08,
+            "p90_abs_s": 0.244,
+            "mse_s2": 0.0343,
+            "rmse_s": 0.1851,
+            "mean_signed_s": -0.0752,
+            "within_0.5s": 0.9659,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 410,
+            "mean": 2.9394,
+            "median": 2.6478,
+            "p90": 3.3215
+          },
+          "player_accuracy": 0.9829,
+          "player2_accuracy": 0.9674,
+          "subtype_accuracy": 0.0,
+          "attributable": {
+            "truth": 493,
+            "tp": 410,
+            "recall": 0.8316
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "inbounds": {
+              "truth": 72,
+              "tp": 42,
+              "recall": 0.5833
+            },
+            "not_inbounds": {
+              "truth": 421,
+              "tp": 368,
+              "recall": 0.8741
+            },
+            "handoff": {
+              "truth": 48,
+              "tp": 42,
+              "recall": 0.875
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.7689,
+            "1": 0.7961,
+            "2": 0.8097
+          }
+        },
+        "shot": {
+          "status": "scored",
+          "truth": 139,
+          "detected": 123,
+          "tp": 117,
+          "fp": 6,
+          "fn": 22,
+          "precision": 0.9512,
+          "recall": 0.8417,
+          "f1": 0.8931,
+          "strict_recall": 0.8417,
+          "timing": {
+            "n": 117,
+            "mean_abs_s": 0.0903,
+            "median_abs_s": 0.08,
+            "p90_abs_s": 0.2,
+            "mse_s2": 0.0193,
+            "rmse_s": 0.139,
+            "mean_signed_s": -0.0328,
+            "within_0.5s": 0.9829,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 114,
+            "mean": 0.5945,
+            "median": 0.2763,
+            "p90": 1.6473
+          },
+          "player_accuracy": 1.0,
+          "attributable": {
+            "truth": 139,
+            "tp": 117,
+            "recall": 0.8417
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "made": {
+              "truth": 64,
+              "tp": 53,
+              "recall": 0.8281
+            },
+            "missed": {
+              "truth": 75,
+              "tp": 64,
+              "recall": 0.8533
+            },
+            "fouled": {
+              "truth": 16,
+              "tp": 13,
+              "recall": 0.8125
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.8779,
+            "1": 0.8931,
+            "2": 0.9313
+          }
+        },
+        "rebound": {
+          "status": "scored",
+          "truth": 61,
+          "detected": 61,
+          "tp": 50,
+          "fp": 11,
+          "fn": 11,
+          "precision": 0.8197,
+          "recall": 0.8197,
+          "f1": 0.8197,
+          "strict_recall": 0.8033,
+          "timing": {
+            "n": 50,
+            "mean_abs_s": 0.3568,
+            "median_abs_s": 0.32,
+            "p90_abs_s": 0.564,
+            "mse_s2": 0.1713,
+            "rmse_s": 0.4138,
+            "mean_signed_s": 0.3008,
+            "within_0.5s": 0.82,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 49,
+            "mean": 3.2575,
+            "median": 2.8497,
+            "p90": 5.4726
+          },
+          "player_accuracy": 0.92,
+          "subtype_accuracy": 0.92,
+          "attributable": {
+            "truth": 60,
+            "tp": 50,
+            "recall": 0.8333
+          },
+          "team_events": {
+            "truth": 1,
+            "tp": 0,
+            "recall": 0.0
+          },
+          "subsets": {
+            "offensive": {
+              "truth": 19,
+              "tp": 13,
+              "recall": 0.6842
+            },
+            "defensive": {
+              "truth": 42,
+              "tp": 37,
+              "recall": 0.881
+            },
+            "after_free_throw": {
+              "truth": 1,
+              "tp": 0,
+              "recall": 0.0
+            }
+          },
+          "average_precision": 0.6395,
+          "f1_by_window": {
+            "0.5": 0.6721,
+            "1": 0.8197,
+            "2": 0.9016
+          }
+        },
+        "turnover": {
+          "status": "scored",
+          "truth": 30,
+          "detected": 20,
+          "tp": 15,
+          "fp": 5,
+          "fn": 15,
+          "precision": 0.75,
+          "recall": 0.5,
+          "f1": 0.6,
+          "strict_recall": 0.5,
+          "timing": {
+            "n": 15,
+            "mean_abs_s": 0.1387,
+            "median_abs_s": 0.08,
+            "p90_abs_s": 0.384,
+            "mse_s2": 0.0427,
+            "rmse_s": 0.2066,
+            "mean_signed_s": -0.1067,
+            "within_0.5s": 1.0,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 15,
+            "mean": 0.8881,
+            "median": 0.8557,
+            "p90": 1.9272
+          },
+          "player_accuracy": 1.0,
+          "player2_accuracy": 1.0,
+          "attributable": {
+            "truth": 28,
+            "tp": 15,
+            "recall": 0.5357
+          },
+          "team_events": {
+            "truth": 2,
+            "tp": 0,
+            "recall": 0.0
+          },
+          "f1_by_window": {
+            "0.5": 0.6,
+            "1": 0.6,
+            "2": 0.68
+          }
+        },
+        "foul": {
+          "status": "scored",
+          "truth": 36,
+          "detected": 26,
+          "tp": 5,
+          "fp": 21,
+          "fn": 31,
+          "precision": 0.1923,
+          "recall": 0.1389,
+          "f1": 0.1613,
+          "strict_recall": 0.1111,
+          "timing": {
+            "n": 5,
+            "mean_abs_s": 0.416,
+            "median_abs_s": 0.12,
+            "p90_abs_s": 0.96,
+            "mse_s2": 0.3718,
+            "rmse_s": 0.6098,
+            "mean_signed_s": -0.032,
+            "within_0.5s": 0.6,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 5,
+            "mean": 1.795,
+            "median": 1.3293,
+            "p90": 4.1689
+          },
+          "player_accuracy": 0.8,
+          "player2_accuracy": 0.8,
+          "subtype_accuracy": 1.0,
+          "attributable": {
+            "truth": 36,
+            "tp": 5,
+            "recall": 0.1389
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "shooting": {
+              "truth": 16,
+              "tp": 2,
+              "recall": 0.125
+            },
+            "personal": {
+              "truth": 19,
+              "tp": 3,
+              "recall": 0.1579
+            },
+            "offensive": {
+              "truth": 1,
+              "tp": 0,
+              "recall": 0.0
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.0968,
+            "1": 0.1613,
+            "2": 0.2258
+          }
+        },
+        "screen": {
+          "status": "not_attempted",
+          "truth": 258
+        },
+        "drive": {
+          "status": "not_attempted",
+          "truth": 84
+        },
+        "isolation": {
+          "status": "not_attempted",
+          "truth": 19
+        },
+        "post": {
+          "status": "not_attempted",
+          "truth": 12
+        },
+        "closeout": {
+          "status": "not_attempted",
+          "truth": 66
+        }
+      },
+      "complete_possessions": {
+        "status": "scored",
+        "truth": 151,
+        "window_seconds": 2.0,
+        "action_types": [
+          "pass",
+          "shot",
+          "rebound",
+          "turnover",
+          "foul"
+        ],
+        "requires_split": true,
+        "split_correct": 0.5563,
+        "all_actions_found": 0.4702,
+        "complete": 0.3377,
+        "all_found_by_type": {
+          "pass": 0.5874,
+          "shot": 0.8852,
+          "rebound": 0.8649,
+          "turnover": 0.5,
+          "foul": 0.1515
+        }
+      }
+    },
+    "114099": {
+      "possessions": {
+        "status": "scored",
+        "truth": 157,
+        "detected": 153,
+        "matched": 86,
+        "precision": 0.5621,
+        "recall": 0.5478,
+        "f1": 0.5549,
+        "frame_team_accuracy": 0.7998,
+        "mean_iou": 0.8817,
+        "boundary_error_s": {
+          "start": {
+            "n": 86,
+            "mean_abs_s": 2.1865,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 7.72,
+            "mse_s2": 33.9599,
+            "rmse_s": 5.8275,
+            "mean_signed_s": 1.0293,
+            "within_0.5s": 0.6977,
+            "within_1s": 0.7093
+          },
+          "end": {
+            "n": 86,
+            "mean_abs_s": 3.0316,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 9.26,
+            "mse_s2": 44.9327,
+            "rmse_s": 6.7032,
+            "mean_signed_s": -0.1898,
+            "within_0.5s": 0.6279,
+            "within_1s": 0.6512
+          }
+        }
+      },
+      "ball_handler": {
+        "status": "scored",
+        "frames": 58849,
+        "frames_in_touch": 46767,
+        "frame_accuracy": 0.7227,
+        "in_touch_accuracy": 0.7222,
+        "no_ball_accuracy": 0.7245,
+        "wrong_teammate_rate": 0.0071,
+        "wrong_team_rate": 0.0154,
+        "no_handler_rate": 0.2553
+      },
+      "actions": {
+        "pass": {
+          "status": "scored",
+          "truth": 444,
+          "detected": 473,
+          "tp": 326,
+          "fp": 147,
+          "fn": 118,
+          "precision": 0.6892,
+          "recall": 0.7342,
+          "f1": 0.711,
+          "strict_recall": 0.705,
+          "timing": {
+            "n": 326,
+            "mean_abs_s": 0.091,
+            "median_abs_s": 0.08,
+            "p90_abs_s": 0.18,
+            "mse_s2": 0.0205,
+            "rmse_s": 0.1433,
+            "mean_signed_s": -0.0358,
+            "within_0.5s": 0.9847,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 326,
+            "mean": 2.8754,
+            "median": 2.6056,
+            "p90": 3.3059
+          },
+          "player_accuracy": 0.9571,
+          "player2_accuracy": 0.9148,
+          "subtype_accuracy": 0.0,
+          "attributable": {
+            "truth": 444,
+            "tp": 326,
+            "recall": 0.7342
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "inbounds": {
+              "truth": 57,
+              "tp": 24,
+              "recall": 0.4211
+            },
+            "not_inbounds": {
+              "truth": 387,
+              "tp": 302,
+              "recall": 0.7804
+            },
+            "handoff": {
+              "truth": 25,
+              "tp": 23,
+              "recall": 0.92
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.7001,
+            "1": 0.711,
+            "2": 0.7437
+          }
+        },
+        "shot": {
+          "status": "scored",
+          "truth": 150,
+          "detected": 110,
+          "tp": 97,
+          "fp": 13,
+          "fn": 53,
+          "precision": 0.8818,
+          "recall": 0.6467,
+          "f1": 0.7462,
+          "strict_recall": 0.6133,
+          "timing": {
+            "n": 97,
+            "mean_abs_s": 0.1204,
+            "median_abs_s": 0.08,
+            "p90_abs_s": 0.272,
+            "mse_s2": 0.0451,
+            "rmse_s": 0.2123,
+            "mean_signed_s": 0.0132,
+            "within_0.5s": 0.9381,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 96,
+            "mean": 0.9072,
+            "median": 0.219,
+            "p90": 2.0925
+          },
+          "player_accuracy": 0.9485,
+          "attributable": {
+            "truth": 150,
+            "tp": 97,
+            "recall": 0.6467
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "made": {
+              "truth": 54,
+              "tp": 35,
+              "recall": 0.6481
+            },
+            "missed": {
+              "truth": 96,
+              "tp": 62,
+              "recall": 0.6458
+            },
+            "fouled": {
+              "truth": 11,
+              "tp": 4,
+              "recall": 0.3636
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.7,
+            "1": 0.7462,
+            "2": 0.7923
+          }
+        },
+        "rebound": {
+          "status": "scored",
+          "truth": 87,
+          "detected": 81,
+          "tp": 51,
+          "fp": 30,
+          "fn": 36,
+          "precision": 0.6296,
+          "recall": 0.5862,
+          "f1": 0.6071,
+          "strict_recall": 0.5287,
+          "timing": {
+            "n": 51,
+            "mean_abs_s": 0.3796,
+            "median_abs_s": 0.32,
+            "p90_abs_s": 0.64,
+            "mse_s2": 0.1817,
+            "rmse_s": 0.4263,
+            "mean_signed_s": 0.2729,
+            "within_0.5s": 0.7255,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 49,
+            "mean": 3.2224,
+            "median": 3.003,
+            "p90": 5.2557
+          },
+          "player_accuracy": 0.9,
+          "subtype_accuracy": 0.902,
+          "attributable": {
+            "truth": 73,
+            "tp": 50,
+            "recall": 0.6849
+          },
+          "team_events": {
+            "truth": 14,
+            "tp": 1,
+            "recall": 0.0714
+          },
+          "subsets": {
+            "offensive": {
+              "truth": 24,
+              "tp": 11,
+              "recall": 0.4583
+            },
+            "defensive": {
+              "truth": 63,
+              "tp": 40,
+              "recall": 0.6349
+            },
+            "after_free_throw": {
+              "truth": 1,
+              "tp": 0,
+              "recall": 0.0
+            }
+          },
+          "average_precision": 0.4557,
+          "f1_by_window": {
+            "0.5": 0.4405,
+            "1": 0.6071,
+            "2": 0.6667
+          }
+        },
+        "turnover": {
+          "status": "scored",
+          "truth": 26,
+          "detected": 17,
+          "tp": 8,
+          "fp": 9,
+          "fn": 18,
+          "precision": 0.4706,
+          "recall": 0.3077,
+          "f1": 0.3721,
+          "strict_recall": 0.2692,
+          "timing": {
+            "n": 8,
+            "mean_abs_s": 0.465,
+            "median_abs_s": 0.46,
+            "p90_abs_s": 0.824,
+            "mse_s2": 0.307,
+            "rmse_s": 0.5541,
+            "mean_signed_s": -0.465,
+            "within_0.5s": 0.5,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 8,
+            "mean": 5.995,
+            "median": 3.1802,
+            "p90": 13.5704
+          },
+          "player_accuracy": 0.875,
+          "player2_accuracy": 1.0,
+          "attributable": {
+            "truth": 26,
+            "tp": 8,
+            "recall": 0.3077
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "f1_by_window": {
+            "0.5": 0.186,
+            "1": 0.3721,
+            "2": 0.3721
+          }
+        },
+        "foul": {
+          "status": "scored",
+          "truth": 39,
+          "detected": 31,
+          "tp": 8,
+          "fp": 23,
+          "fn": 31,
+          "precision": 0.2581,
+          "recall": 0.2051,
+          "f1": 0.2286,
+          "strict_recall": 0.2051,
+          "timing": {
+            "n": 8,
+            "mean_abs_s": 0.205,
+            "median_abs_s": 0.1,
+            "p90_abs_s": 0.54,
+            "mse_s2": 0.0934,
+            "rmse_s": 0.3056,
+            "mean_signed_s": -0.085,
+            "within_0.5s": 0.875,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 8,
+            "mean": 1.2864,
+            "median": 0.6872,
+            "p90": 2.7397
+          },
+          "player_accuracy": 1.0,
+          "player2_accuracy": 1.0,
+          "subtype_accuracy": 1.0,
+          "attributable": {
+            "truth": 39,
+            "tp": 8,
+            "recall": 0.2051
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "shooting": {
+              "truth": 11,
+              "tp": 5,
+              "recall": 0.4545
+            },
+            "personal": {
+              "truth": 24,
+              "tp": 3,
+              "recall": 0.125
+            },
+            "offensive": {
+              "truth": 4,
+              "tp": 0,
+              "recall": 0.0
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.2,
+            "1": 0.2286,
+            "2": 0.2286
+          }
+        },
+        "screen": {
+          "status": "not_attempted",
+          "truth": 237
+        },
+        "drive": {
+          "status": "not_attempted",
+          "truth": 50
+        },
+        "isolation": {
+          "status": "not_attempted",
+          "truth": 20
+        },
+        "post": {
+          "status": "not_attempted",
+          "truth": 9
+        },
+        "closeout": {
+          "status": "not_attempted",
+          "truth": 74
+        }
+      },
+      "complete_possessions": {
+        "status": "scored",
+        "truth": 157,
+        "window_seconds": 2.0,
+        "action_types": [
+          "pass",
+          "shot",
+          "rebound",
+          "turnover",
+          "foul"
+        ],
+        "requires_split": true,
+        "split_correct": 0.5478,
+        "all_actions_found": 0.3185,
+        "complete": 0.2293,
+        "all_found_by_type": {
+          "pass": 0.4752,
+          "shot": 0.6202,
+          "rebound": 0.59,
+          "turnover": 0.2308,
+          "foul": 0.2121
+        }
+      }
+    },
+    "114169": {
+      "possessions": {
+        "status": "scored",
+        "truth": 152,
+        "detected": 146,
+        "matched": 93,
+        "precision": 0.637,
+        "recall": 0.6118,
+        "f1": 0.6241,
+        "frame_team_accuracy": 0.9332,
+        "mean_iou": 0.9161,
+        "boundary_error_s": {
+          "start": {
+            "n": 93,
+            "mean_abs_s": 2.7256,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 2.832,
+            "mse_s2": 108.1562,
+            "rmse_s": 10.3998,
+            "mean_signed_s": -0.4581,
+            "within_0.5s": 0.7849,
+            "within_1s": 0.7957
+          },
+          "end": {
+            "n": 93,
+            "mean_abs_s": 2.1024,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 3.024,
+            "mse_s2": 65.8547,
+            "rmse_s": 8.1151,
+            "mean_signed_s": -1.1716,
+            "within_0.5s": 0.7957,
+            "within_1s": 0.8065
+          }
+        }
+      },
+      "ball_handler": {
+        "status": "scored",
+        "frames": 59516,
+        "frames_in_touch": 47753,
+        "frame_accuracy": 0.7959,
+        "in_touch_accuracy": 0.8323,
+        "no_ball_accuracy": 0.6485,
+        "wrong_teammate_rate": 0.0108,
+        "wrong_team_rate": 0.0045,
+        "no_handler_rate": 0.1524
+      },
+      "actions": {
+        "pass": {
+          "status": "scored",
+          "truth": 435,
+          "detected": 488,
+          "tp": 365,
+          "fp": 123,
+          "fn": 70,
+          "precision": 0.748,
+          "recall": 0.8391,
+          "f1": 0.7909,
+          "strict_recall": 0.8161,
+          "timing": {
+            "n": 365,
+            "mean_abs_s": 0.1174,
+            "median_abs_s": 0.08,
+            "p90_abs_s": 0.28,
+            "mse_s2": 0.0326,
+            "rmse_s": 0.1807,
+            "mean_signed_s": -0.0514,
+            "within_0.5s": 0.9753,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 365,
+            "mean": 3.0133,
+            "median": 2.6149,
+            "p90": 3.4038
+          },
+          "player_accuracy": 0.9589,
+          "player2_accuracy": 0.9489,
+          "subtype_accuracy": 0.0,
+          "attributable": {
+            "truth": 435,
+            "tp": 365,
+            "recall": 0.8391
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "inbounds": {
+              "truth": 75,
+              "tp": 38,
+              "recall": 0.5067
+            },
+            "not_inbounds": {
+              "truth": 360,
+              "tp": 327,
+              "recall": 0.9083
+            },
+            "handoff": {
+              "truth": 36,
+              "tp": 29,
+              "recall": 0.8056
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.7714,
+            "1": 0.7909,
+            "2": 0.8017
+          }
+        },
+        "shot": {
+          "status": "scored",
+          "truth": 148,
+          "detected": 136,
+          "tp": 131,
+          "fp": 5,
+          "fn": 17,
+          "precision": 0.9632,
+          "recall": 0.8851,
+          "f1": 0.9225,
+          "strict_recall": 0.8784,
+          "timing": {
+            "n": 131,
+            "mean_abs_s": 0.0809,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 0.16,
+            "mse_s2": 0.0221,
+            "rmse_s": 0.1486,
+            "mean_signed_s": -0.015,
+            "within_0.5s": 0.9695,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 130,
+            "mean": 0.5604,
+            "median": 0.2254,
+            "p90": 1.547
+          },
+          "player_accuracy": 0.9847,
+          "attributable": {
+            "truth": 148,
+            "tp": 131,
+            "recall": 0.8851
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "made": {
+              "truth": 54,
+              "tp": 45,
+              "recall": 0.8333
+            },
+            "missed": {
+              "truth": 94,
+              "tp": 86,
+              "recall": 0.9149
+            },
+            "fouled": {
+              "truth": 12,
+              "tp": 11,
+              "recall": 0.9167
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.8944,
+            "1": 0.9225,
+            "2": 0.9296
+          }
+        },
+        "rebound": {
+          "status": "scored",
+          "truth": 82,
+          "detected": 83,
+          "tp": 59,
+          "fp": 24,
+          "fn": 23,
+          "precision": 0.7108,
+          "recall": 0.7195,
+          "f1": 0.7151,
+          "strict_recall": 0.6951,
+          "timing": {
+            "n": 59,
+            "mean_abs_s": 0.4332,
+            "median_abs_s": 0.4,
+            "p90_abs_s": 0.736,
+            "mse_s2": 0.2389,
+            "rmse_s": 0.4888,
+            "mean_signed_s": 0.2976,
+            "within_0.5s": 0.6271,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 58,
+            "mean": 3.0671,
+            "median": 3.0281,
+            "p90": 5.1708
+          },
+          "player_accuracy": 0.9492,
+          "subtype_accuracy": 0.9492,
+          "attributable": {
+            "truth": 73,
+            "tp": 59,
+            "recall": 0.8082
+          },
+          "team_events": {
+            "truth": 9,
+            "tp": 0,
+            "recall": 0.0
+          },
+          "subsets": {
+            "offensive": {
+              "truth": 23,
+              "tp": 10,
+              "recall": 0.4348
+            },
+            "defensive": {
+              "truth": 59,
+              "tp": 49,
+              "recall": 0.8305
+            },
+            "after_free_throw": {
+              "truth": 2,
+              "tp": 0,
+              "recall": 0.0
+            }
+          },
+          "average_precision": 0.6274,
+          "f1_by_window": {
+            "0.5": 0.4485,
+            "1": 0.7151,
+            "2": 0.8
+          }
+        },
+        "turnover": {
+          "status": "scored",
+          "truth": 16,
+          "detected": 12,
+          "tp": 8,
+          "fp": 4,
+          "fn": 8,
+          "precision": 0.6667,
+          "recall": 0.5,
+          "f1": 0.5714,
+          "strict_recall": 0.5,
+          "timing": {
+            "n": 8,
+            "mean_abs_s": 0.36,
+            "median_abs_s": 0.4,
+            "p90_abs_s": 0.648,
+            "mse_s2": 0.1912,
+            "rmse_s": 0.4373,
+            "mean_signed_s": -0.36,
+            "within_0.5s": 0.75,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 7,
+            "mean": 2.1804,
+            "median": 2.2034,
+            "p90": 3.9597
+          },
+          "player_accuracy": 1.0,
+          "player2_accuracy": 1.0,
+          "attributable": {
+            "truth": 16,
+            "tp": 8,
+            "recall": 0.5
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "f1_by_window": {
+            "0.5": 0.4286,
+            "1": 0.5714,
+            "2": 0.7857
+          }
+        },
+        "foul": {
+          "status": "scored",
+          "truth": 49,
+          "detected": 31,
+          "tp": 11,
+          "fp": 20,
+          "fn": 38,
+          "precision": 0.3548,
+          "recall": 0.2245,
+          "f1": 0.275,
+          "strict_recall": 0.2245,
+          "timing": {
+            "n": 11,
+            "mean_abs_s": 0.5491,
+            "median_abs_s": 0.6,
+            "p90_abs_s": 0.88,
+            "mse_s2": 0.3495,
+            "rmse_s": 0.5912,
+            "mean_signed_s": 0.5055,
+            "within_0.5s": 0.3636,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 11,
+            "mean": 3.0266,
+            "median": 2.6694,
+            "p90": 5.017
+          },
+          "player_accuracy": 1.0,
+          "player2_accuracy": 1.0,
+          "subtype_accuracy": 1.0,
+          "attributable": {
+            "truth": 49,
+            "tp": 11,
+            "recall": 0.2245
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "shooting": {
+              "truth": 12,
+              "tp": 0,
+              "recall": 0.0
+            },
+            "personal": {
+              "truth": 35,
+              "tp": 11,
+              "recall": 0.3143
+            },
+            "offensive": {
+              "truth": 2,
+              "tp": 0,
+              "recall": 0.0
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.1,
+            "1": 0.275,
+            "2": 0.3
+          }
+        },
+        "screen": {
+          "status": "not_attempted",
+          "truth": 268
+        },
+        "drive": {
+          "status": "not_attempted",
+          "truth": 65
+        },
+        "isolation": {
+          "status": "not_attempted",
+          "truth": 29
+        },
+        "post": {
+          "status": "not_attempted",
+          "truth": 9
+        },
+        "closeout": {
+          "status": "not_attempted",
+          "truth": 43
+        }
+      },
+      "complete_possessions": {
+        "status": "scored",
+        "truth": 152,
+        "window_seconds": 2.0,
+        "action_types": [
+          "pass",
+          "shot",
+          "rebound",
+          "turnover",
+          "foul"
+        ],
+        "requires_split": true,
+        "split_correct": 0.6118,
+        "all_actions_found": 0.4934,
+        "complete": 0.375,
+        "all_found_by_type": {
+          "pass": 0.6418,
+          "shot": 0.874,
+          "rebound": 0.7529,
+          "turnover": 0.7083,
+          "foul": 0.1905
+        }
+      }
+    },
+    "114234": {
+      "possessions": {
+        "status": "scored",
+        "truth": 166,
+        "detected": 163,
+        "matched": 92,
+        "precision": 0.5644,
+        "recall": 0.5542,
+        "f1": 0.5593,
+        "frame_team_accuracy": 0.9121,
+        "mean_iou": 0.897,
+        "boundary_error_s": {
+          "start": {
+            "n": 92,
+            "mean_abs_s": 1.3248,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 4.268,
+            "mse_s2": 11.1093,
+            "rmse_s": 3.3331,
+            "mean_signed_s": -0.3343,
+            "within_0.5s": 0.7065,
+            "within_1s": 0.75
+          },
+          "end": {
+            "n": 92,
+            "mean_abs_s": 1.2761,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 3.096,
+            "mse_s2": 14.0653,
+            "rmse_s": 3.7504,
+            "mean_signed_s": -0.8726,
+            "within_0.5s": 0.75,
+            "within_1s": 0.7826
+          }
+        }
+      },
+      "ball_handler": {
+        "status": "scored",
+        "frames": 57791,
+        "frames_in_touch": 46564,
+        "frame_accuracy": 0.8036,
+        "in_touch_accuracy": 0.8347,
+        "no_ball_accuracy": 0.6744,
+        "wrong_teammate_rate": 0.0119,
+        "wrong_team_rate": 0.0083,
+        "no_handler_rate": 0.1451
+      },
+      "actions": {
+        "pass": {
+          "status": "scored",
+          "truth": 441,
+          "detected": 487,
+          "tp": 358,
+          "fp": 129,
+          "fn": 83,
+          "precision": 0.7351,
+          "recall": 0.8118,
+          "f1": 0.7715,
+          "strict_recall": 0.7823,
+          "timing": {
+            "n": 358,
+            "mean_abs_s": 0.1161,
+            "median_abs_s": 0.08,
+            "p90_abs_s": 0.24,
+            "mse_s2": 0.032,
+            "rmse_s": 0.1789,
+            "mean_signed_s": -0.064,
+            "within_0.5s": 0.9721,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 358,
+            "mean": 3.2765,
+            "median": 2.6367,
+            "p90": 3.4774
+          },
+          "player_accuracy": 0.9581,
+          "player2_accuracy": 0.9123,
+          "subtype_accuracy": 0.0,
+          "attributable": {
+            "truth": 441,
+            "tp": 358,
+            "recall": 0.8118
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "inbounds": {
+              "truth": 60,
+              "tp": 41,
+              "recall": 0.6833
+            },
+            "not_inbounds": {
+              "truth": 381,
+              "tp": 317,
+              "recall": 0.832
+            },
+            "handoff": {
+              "truth": 45,
+              "tp": 41,
+              "recall": 0.9111
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.75,
+            "1": 0.7715,
+            "2": 0.7888
+          }
+        },
+        "shot": {
+          "status": "scored",
+          "truth": 143,
+          "detected": 129,
+          "tp": 121,
+          "fp": 8,
+          "fn": 22,
+          "precision": 0.938,
+          "recall": 0.8462,
+          "f1": 0.8897,
+          "strict_recall": 0.8462,
+          "timing": {
+            "n": 121,
+            "mean_abs_s": 0.1028,
+            "median_abs_s": 0.08,
+            "p90_abs_s": 0.24,
+            "mse_s2": 0.0273,
+            "rmse_s": 0.1651,
+            "mean_signed_s": -0.0579,
+            "within_0.5s": 0.9752,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 119,
+            "mean": 0.8178,
+            "median": 0.3651,
+            "p90": 1.7915
+          },
+          "player_accuracy": 1.0,
+          "attributable": {
+            "truth": 143,
+            "tp": 121,
+            "recall": 0.8462
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "made": {
+              "truth": 60,
+              "tp": 49,
+              "recall": 0.8167
+            },
+            "missed": {
+              "truth": 83,
+              "tp": 72,
+              "recall": 0.8675
+            },
+            "fouled": {
+              "truth": 18,
+              "tp": 18,
+              "recall": 1.0
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.8676,
+            "1": 0.8897,
+            "2": 0.8897
+          }
+        },
+        "rebound": {
+          "status": "scored",
+          "truth": 71,
+          "detected": 65,
+          "tp": 45,
+          "fp": 20,
+          "fn": 26,
+          "precision": 0.6923,
+          "recall": 0.6338,
+          "f1": 0.6618,
+          "strict_recall": 0.6056,
+          "timing": {
+            "n": 45,
+            "mean_abs_s": 0.3547,
+            "median_abs_s": 0.28,
+            "p90_abs_s": 0.704,
+            "mse_s2": 0.1871,
+            "rmse_s": 0.4326,
+            "mean_signed_s": 0.2107,
+            "within_0.5s": 0.7111,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 44,
+            "mean": 3.5387,
+            "median": 3.5405,
+            "p90": 5.5065
+          },
+          "player_accuracy": 0.8864,
+          "subtype_accuracy": 0.9778,
+          "attributable": {
+            "truth": 63,
+            "tp": 44,
+            "recall": 0.6984
+          },
+          "team_events": {
+            "truth": 8,
+            "tp": 1,
+            "recall": 0.125
+          },
+          "subsets": {
+            "offensive": {
+              "truth": 23,
+              "tp": 12,
+              "recall": 0.5217
+            },
+            "defensive": {
+              "truth": 48,
+              "tp": 33,
+              "recall": 0.6875
+            },
+            "after_free_throw": {
+              "truth": 5,
+              "tp": 0,
+              "recall": 0.0
+            }
+          },
+          "average_precision": 0.4791,
+          "f1_by_window": {
+            "0.5": 0.4706,
+            "1": 0.6618,
+            "2": 0.7353
+          }
+        },
+        "turnover": {
+          "status": "scored",
+          "truth": 37,
+          "detected": 30,
+          "tp": 19,
+          "fp": 11,
+          "fn": 18,
+          "precision": 0.6333,
+          "recall": 0.5135,
+          "f1": 0.5671,
+          "strict_recall": 0.5135,
+          "timing": {
+            "n": 19,
+            "mean_abs_s": 0.3116,
+            "median_abs_s": 0.16,
+            "p90_abs_s": 0.696,
+            "mse_s2": 0.1891,
+            "rmse_s": 0.4349,
+            "mean_signed_s": -0.3032,
+            "within_0.5s": 0.5789,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 19,
+            "mean": 5.5028,
+            "median": 0.7616,
+            "p90": 7.1583
+          },
+          "player_accuracy": 1.0,
+          "player2_accuracy": 1.0,
+          "attributable": {
+            "truth": 37,
+            "tp": 19,
+            "recall": 0.5135
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "f1_by_window": {
+            "0.5": 0.3284,
+            "1": 0.5671,
+            "2": 0.6866
+          }
+        },
+        "foul": {
+          "status": "scored",
+          "truth": 45,
+          "detected": 30,
+          "tp": 13,
+          "fp": 17,
+          "fn": 32,
+          "precision": 0.4333,
+          "recall": 0.2889,
+          "f1": 0.3467,
+          "strict_recall": 0.2889,
+          "timing": {
+            "n": 13,
+            "mean_abs_s": 0.32,
+            "median_abs_s": 0.32,
+            "p90_abs_s": 0.584,
+            "mse_s2": 0.1536,
+            "rmse_s": 0.3919,
+            "mean_signed_s": 0.1354,
+            "within_0.5s": 0.7692,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 13,
+            "mean": 2.4439,
+            "median": 1.4826,
+            "p90": 6.0525
+          },
+          "player_accuracy": 1.0,
+          "player2_accuracy": 1.0,
+          "subtype_accuracy": 0.9231,
+          "attributable": {
+            "truth": 45,
+            "tp": 13,
+            "recall": 0.2889
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "shooting": {
+              "truth": 18,
+              "tp": 6,
+              "recall": 0.3333
+            },
+            "personal": {
+              "truth": 22,
+              "tp": 7,
+              "recall": 0.3182
+            },
+            "offensive": {
+              "truth": 4,
+              "tp": 0,
+              "recall": 0.0
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.2666,
+            "1": 0.3467,
+            "2": 0.5066
+          }
+        },
+        "screen": {
+          "status": "not_attempted",
+          "truth": 245
+        },
+        "drive": {
+          "status": "not_attempted",
+          "truth": 70
+        },
+        "isolation": {
+          "status": "not_attempted",
+          "truth": 15
+        },
+        "post": {
+          "status": "not_attempted",
+          "truth": 5
+        },
+        "closeout": {
+          "status": "not_attempted",
+          "truth": 56
+        }
+      },
+      "complete_possessions": {
+        "status": "scored",
+        "truth": 166,
+        "window_seconds": 2.0,
+        "action_types": [
+          "pass",
+          "shot",
+          "rebound",
+          "turnover",
+          "foul"
+        ],
+        "requires_split": true,
+        "split_correct": 0.5542,
+        "all_actions_found": 0.3976,
+        "complete": 0.247,
+        "all_found_by_type": {
+          "pass": 0.5921,
+          "shot": 0.8306,
+          "rebound": 0.6867,
+          "turnover": 0.62,
+          "foul": 0.375
+        }
+      }
+    },
+    "114243": {
+      "possessions": {
+        "status": "scored",
+        "truth": 157,
+        "detected": 154,
+        "matched": 88,
+        "precision": 0.5714,
+        "recall": 0.5605,
+        "f1": 0.5659,
+        "frame_team_accuracy": 0.9267,
+        "mean_iou": 0.8917,
+        "boundary_error_s": {
+          "start": {
+            "n": 88,
+            "mean_abs_s": 2.9005,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 8.316,
+            "mse_s2": 78.5053,
+            "rmse_s": 8.8603,
+            "mean_signed_s": -1.2941,
+            "within_0.5s": 0.75,
+            "within_1s": 0.75
+          },
+          "end": {
+            "n": 88,
+            "mean_abs_s": 1.2368,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 5.5,
+            "mse_s2": 9.5042,
+            "rmse_s": 3.0829,
+            "mean_signed_s": -0.4059,
+            "within_0.5s": 0.7841,
+            "within_1s": 0.7955
+          }
+        }
+      },
+      "ball_handler": {
+        "status": "scored",
+        "frames": 59203,
+        "frames_in_touch": 47721,
+        "frame_accuracy": 0.7693,
+        "in_touch_accuracy": 0.7884,
+        "no_ball_accuracy": 0.6902,
+        "wrong_teammate_rate": 0.0129,
+        "wrong_team_rate": 0.0061,
+        "no_handler_rate": 0.1926
+      },
+      "actions": {
+        "pass": {
+          "status": "scored",
+          "truth": 497,
+          "detected": 569,
+          "tp": 414,
+          "fp": 155,
+          "fn": 83,
+          "precision": 0.7276,
+          "recall": 0.833,
+          "f1": 0.7767,
+          "strict_recall": 0.8149,
+          "timing": {
+            "n": 414,
+            "mean_abs_s": 0.128,
+            "median_abs_s": 0.08,
+            "p90_abs_s": 0.28,
+            "mse_s2": 0.0402,
+            "rmse_s": 0.2004,
+            "mean_signed_s": -0.065,
+            "within_0.5s": 0.9589,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 414,
+            "mean": 3.1775,
+            "median": 2.5859,
+            "p90": 3.338
+          },
+          "player_accuracy": 0.9758,
+          "player2_accuracy": 0.9333,
+          "subtype_accuracy": 0.0,
+          "attributable": {
+            "truth": 497,
+            "tp": 414,
+            "recall": 0.833
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "inbounds": {
+              "truth": 70,
+              "tp": 42,
+              "recall": 0.6
+            },
+            "not_inbounds": {
+              "truth": 427,
+              "tp": 372,
+              "recall": 0.8712
+            },
+            "handoff": {
+              "truth": 53,
+              "tp": 45,
+              "recall": 0.8491
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.7448,
+            "1": 0.7767,
+            "2": 0.7973
+          }
+        },
+        "shot": {
+          "status": "scored",
+          "truth": 158,
+          "detected": 146,
+          "tp": 126,
+          "fp": 20,
+          "fn": 32,
+          "precision": 0.863,
+          "recall": 0.7975,
+          "f1": 0.829,
+          "strict_recall": 0.7848,
+          "timing": {
+            "n": 126,
+            "mean_abs_s": 0.0971,
+            "median_abs_s": 0.08,
+            "p90_abs_s": 0.2,
+            "mse_s2": 0.0218,
+            "rmse_s": 0.1476,
+            "mean_signed_s": -0.0279,
+            "within_0.5s": 0.9841,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 125,
+            "mean": 0.7441,
+            "median": 0.3338,
+            "p90": 1.9771
+          },
+          "player_accuracy": 0.9762,
+          "attributable": {
+            "truth": 158,
+            "tp": 126,
+            "recall": 0.7975
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "made": {
+              "truth": 55,
+              "tp": 48,
+              "recall": 0.8727
+            },
+            "missed": {
+              "truth": 103,
+              "tp": 78,
+              "recall": 0.7573
+            },
+            "fouled": {
+              "truth": 15,
+              "tp": 10,
+              "recall": 0.6667
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.8158,
+            "1": 0.829,
+            "2": 0.8619
+          }
+        },
+        "rebound": {
+          "status": "scored",
+          "truth": 94,
+          "detected": 91,
+          "tp": 67,
+          "fp": 24,
+          "fn": 27,
+          "precision": 0.7363,
+          "recall": 0.7128,
+          "f1": 0.7244,
+          "strict_recall": 0.7021,
+          "timing": {
+            "n": 67,
+            "mean_abs_s": 0.4042,
+            "median_abs_s": 0.36,
+            "p90_abs_s": 0.68,
+            "mse_s2": 0.1991,
+            "rmse_s": 0.4462,
+            "mean_signed_s": 0.3361,
+            "within_0.5s": 0.7612,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 66,
+            "mean": 3.3693,
+            "median": 3.3022,
+            "p90": 5.3256
+          },
+          "player_accuracy": 0.9851,
+          "subtype_accuracy": 0.9701,
+          "attributable": {
+            "truth": 82,
+            "tp": 67,
+            "recall": 0.8171
+          },
+          "team_events": {
+            "truth": 12,
+            "tp": 0,
+            "recall": 0.0
+          },
+          "subsets": {
+            "offensive": {
+              "truth": 31,
+              "tp": 18,
+              "recall": 0.5806
+            },
+            "defensive": {
+              "truth": 63,
+              "tp": 49,
+              "recall": 0.7778
+            },
+            "after_free_throw": {
+              "truth": 3,
+              "tp": 0,
+              "recall": 0.0
+            }
+          },
+          "average_precision": 0.6368,
+          "f1_by_window": {
+            "0.5": 0.5514,
+            "1": 0.7244,
+            "2": 0.8216
+          }
+        },
+        "turnover": {
+          "status": "scored",
+          "truth": 25,
+          "detected": 15,
+          "tp": 8,
+          "fp": 7,
+          "fn": 17,
+          "precision": 0.5333,
+          "recall": 0.32,
+          "f1": 0.4,
+          "strict_recall": 0.28,
+          "timing": {
+            "n": 8,
+            "mean_abs_s": 0.33,
+            "median_abs_s": 0.2,
+            "p90_abs_s": 0.804,
+            "mse_s2": 0.2352,
+            "rmse_s": 0.485,
+            "mean_signed_s": -0.33,
+            "within_0.5s": 0.75,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 8,
+            "mean": 2.8622,
+            "median": 0.992,
+            "p90": 7.023
+          },
+          "player_accuracy": 0.875,
+          "player2_accuracy": 0.75,
+          "attributable": {
+            "truth": 23,
+            "tp": 8,
+            "recall": 0.3478
+          },
+          "team_events": {
+            "truth": 2,
+            "tp": 0,
+            "recall": 0.0
+          },
+          "f1_by_window": {
+            "0.5": 0.3,
+            "1": 0.4,
+            "2": 0.45
+          }
+        },
+        "foul": {
+          "status": "scored",
+          "truth": 39,
+          "detected": 19,
+          "tp": 6,
+          "fp": 13,
+          "fn": 33,
+          "precision": 0.3158,
+          "recall": 0.1538,
+          "f1": 0.2069,
+          "strict_recall": 0.1282,
+          "timing": {
+            "n": 6,
+            "mean_abs_s": 0.36,
+            "median_abs_s": 0.2,
+            "p90_abs_s": 0.84,
+            "mse_s2": 0.2544,
+            "rmse_s": 0.5044,
+            "mean_signed_s": 0.2,
+            "within_0.5s": 0.6667,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 6,
+            "mean": 1.91,
+            "median": 1.3648,
+            "p90": 3.8509
+          },
+          "player_accuracy": 0.8333,
+          "player2_accuracy": 1.0,
+          "subtype_accuracy": 1.0,
+          "attributable": {
+            "truth": 39,
+            "tp": 6,
+            "recall": 0.1538
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "shooting": {
+              "truth": 15,
+              "tp": 0,
+              "recall": 0.0
+            },
+            "personal": {
+              "truth": 20,
+              "tp": 6,
+              "recall": 0.3
+            },
+            "offensive": {
+              "truth": 4,
+              "tp": 0,
+              "recall": 0.0
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.138,
+            "1": 0.2069,
+            "2": 0.2069
+          }
+        },
+        "screen": {
+          "status": "not_attempted",
+          "truth": 267
+        },
+        "drive": {
+          "status": "not_attempted",
+          "truth": 58
+        },
+        "isolation": {
+          "status": "not_attempted",
+          "truth": 11
+        },
+        "post": {
+          "status": "not_attempted",
+          "truth": 15
+        },
+        "closeout": {
+          "status": "not_attempted",
+          "truth": 58
+        }
+      },
+      "complete_possessions": {
+        "status": "scored",
+        "truth": 157,
+        "window_seconds": 2.0,
+        "action_types": [
+          "pass",
+          "shot",
+          "rebound",
+          "turnover",
+          "foul"
+        ],
+        "requires_split": true,
+        "split_correct": 0.5605,
+        "all_actions_found": 0.4522,
+        "complete": 0.3185,
+        "all_found_by_type": {
+          "pass": 0.6241,
+          "shot": 0.8077,
+          "rebound": 0.7979,
+          "turnover": 0.3438,
+          "foul": 0.1515
+        }
+      }
+    },
+    "178442": {
+      "possessions": {
+        "status": "scored",
+        "truth": 173,
+        "detected": 163,
+        "matched": 99,
+        "precision": 0.6074,
+        "recall": 0.5723,
+        "f1": 0.5893,
+        "frame_team_accuracy": 0.9268,
+        "mean_iou": 0.9021,
+        "boundary_error_s": {
+          "start": {
+            "n": 99,
+            "mean_abs_s": 0.8218,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 3.48,
+            "mse_s2": 3.5168,
+            "rmse_s": 1.8753,
+            "mean_signed_s": -0.3556,
+            "within_0.5s": 0.7475,
+            "within_1s": 0.7576
+          },
+          "end": {
+            "n": 99,
+            "mean_abs_s": 2.6489,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 4.096,
+            "mse_s2": 149.1429,
+            "rmse_s": 12.2124,
+            "mean_signed_s": -0.3822,
+            "within_0.5s": 0.7576,
+            "within_1s": 0.7778
+          }
+        }
+      },
+      "ball_handler": {
+        "status": "scored",
+        "frames": 63768,
+        "frames_in_touch": 51144,
+        "frame_accuracy": 0.8004,
+        "in_touch_accuracy": 0.8235,
+        "no_ball_accuracy": 0.7067,
+        "wrong_teammate_rate": 0.0115,
+        "wrong_team_rate": 0.0094,
+        "no_handler_rate": 0.1556
+      },
+      "actions": {
+        "pass": {
+          "status": "scored",
+          "truth": 425,
+          "detected": 519,
+          "tp": 356,
+          "fp": 163,
+          "fn": 69,
+          "precision": 0.6859,
+          "recall": 0.8376,
+          "f1": 0.7542,
+          "strict_recall": 0.8118,
+          "timing": {
+            "n": 356,
+            "mean_abs_s": 0.1212,
+            "median_abs_s": 0.08,
+            "p90_abs_s": 0.28,
+            "mse_s2": 0.0372,
+            "rmse_s": 0.1928,
+            "mean_signed_s": -0.0626,
+            "within_0.5s": 0.9691,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 356,
+            "mean": 3.0782,
+            "median": 2.7015,
+            "p90": 3.4351
+          },
+          "player_accuracy": 0.9607,
+          "player2_accuracy": 0.942,
+          "subtype_accuracy": 0.0,
+          "attributable": {
+            "truth": 425,
+            "tp": 356,
+            "recall": 0.8376
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "inbounds": {
+              "truth": 66,
+              "tp": 46,
+              "recall": 0.697
+            },
+            "not_inbounds": {
+              "truth": 359,
+              "tp": 310,
+              "recall": 0.8635
+            },
+            "handoff": {
+              "truth": 43,
+              "tp": 36,
+              "recall": 0.8372
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.7309,
+            "1": 0.7542,
+            "2": 0.7839
+          }
+        },
+        "shot": {
+          "status": "scored",
+          "truth": 152,
+          "detected": 135,
+          "tp": 124,
+          "fp": 11,
+          "fn": 28,
+          "precision": 0.9185,
+          "recall": 0.8158,
+          "f1": 0.8641,
+          "strict_recall": 0.8092,
+          "timing": {
+            "n": 124,
+            "mean_abs_s": 0.0919,
+            "median_abs_s": 0.08,
+            "p90_abs_s": 0.2,
+            "mse_s2": 0.0191,
+            "rmse_s": 0.1382,
+            "mean_signed_s": -0.0339,
+            "within_0.5s": 0.9839,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 123,
+            "mean": 0.7508,
+            "median": 0.3156,
+            "p90": 2.1981
+          },
+          "player_accuracy": 0.9839,
+          "attributable": {
+            "truth": 152,
+            "tp": 124,
+            "recall": 0.8158
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "made": {
+              "truth": 70,
+              "tp": 59,
+              "recall": 0.8429
+            },
+            "missed": {
+              "truth": 82,
+              "tp": 65,
+              "recall": 0.7927
+            },
+            "fouled": {
+              "truth": 13,
+              "tp": 9,
+              "recall": 0.6923
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.8502,
+            "1": 0.8641,
+            "2": 0.892
+          }
+        },
+        "rebound": {
+          "status": "scored",
+          "truth": 75,
+          "detected": 71,
+          "tp": 48,
+          "fp": 23,
+          "fn": 27,
+          "precision": 0.6761,
+          "recall": 0.64,
+          "f1": 0.6576,
+          "strict_recall": 0.6267,
+          "timing": {
+            "n": 48,
+            "mean_abs_s": 0.35,
+            "median_abs_s": 0.36,
+            "p90_abs_s": 0.624,
+            "mse_s2": 0.1587,
+            "rmse_s": 0.3984,
+            "mean_signed_s": 0.2633,
+            "within_0.5s": 0.8333,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 47,
+            "mean": 3.2594,
+            "median": 3.171,
+            "p90": 5.3605
+          },
+          "player_accuracy": 0.9574,
+          "subtype_accuracy": 0.9583,
+          "attributable": {
+            "truth": 68,
+            "tp": 47,
+            "recall": 0.6912
+          },
+          "team_events": {
+            "truth": 7,
+            "tp": 1,
+            "recall": 0.1429
+          },
+          "subsets": {
+            "offensive": {
+              "truth": 19,
+              "tp": 10,
+              "recall": 0.5263
+            },
+            "defensive": {
+              "truth": 56,
+              "tp": 38,
+              "recall": 0.6786
+            },
+            "after_free_throw": {
+              "truth": 6,
+              "tp": 0,
+              "recall": 0.0
+            }
+          },
+          "average_precision": 0.4933,
+          "f1_by_window": {
+            "0.5": 0.5479,
+            "1": 0.6576,
+            "2": 0.7123
+          }
+        },
+        "turnover": {
+          "status": "scored",
+          "truth": 24,
+          "detected": 22,
+          "tp": 12,
+          "fp": 10,
+          "fn": 12,
+          "precision": 0.5455,
+          "recall": 0.5,
+          "f1": 0.5218,
+          "strict_recall": 0.5,
+          "timing": {
+            "n": 12,
+            "mean_abs_s": 0.2967,
+            "median_abs_s": 0.18,
+            "p90_abs_s": 0.696,
+            "mse_s2": 0.1596,
+            "rmse_s": 0.3995,
+            "mean_signed_s": -0.09,
+            "within_0.5s": 0.8333,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 12,
+            "mean": 2.8399,
+            "median": 1.1584,
+            "p90": 8.271
+          },
+          "player_accuracy": 1.0,
+          "player2_accuracy": 1.0,
+          "attributable": {
+            "truth": 24,
+            "tp": 12,
+            "recall": 0.5
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "f1_by_window": {
+            "0.5": 0.4348,
+            "1": 0.5218,
+            "2": 0.6522
+          }
+        },
+        "foul": {
+          "status": "scored",
+          "truth": 38,
+          "detected": 36,
+          "tp": 25,
+          "fp": 11,
+          "fn": 13,
+          "precision": 0.6944,
+          "recall": 0.6579,
+          "f1": 0.6757,
+          "strict_recall": 0.6579,
+          "timing": {
+            "n": 25,
+            "mean_abs_s": 0.4208,
+            "median_abs_s": 0.32,
+            "p90_abs_s": 0.872,
+            "mse_s2": 0.2672,
+            "rmse_s": 0.5169,
+            "mean_signed_s": 0.36,
+            "within_0.5s": 0.64,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 25,
+            "mean": 2.2478,
+            "median": 1.6373,
+            "p90": 4.8395
+          },
+          "player_accuracy": 1.0,
+          "player2_accuracy": 1.0,
+          "subtype_accuracy": 0.84,
+          "attributable": {
+            "truth": 38,
+            "tp": 25,
+            "recall": 0.6579
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "shooting": {
+              "truth": 13,
+              "tp": 8,
+              "recall": 0.6154
+            },
+            "personal": {
+              "truth": 23,
+              "tp": 16,
+              "recall": 0.6957
+            },
+            "offensive": {
+              "truth": 2,
+              "tp": 1,
+              "recall": 0.5
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.4324,
+            "1": 0.6757,
+            "2": 0.7567
+          }
+        },
+        "screen": {
+          "status": "not_attempted",
+          "truth": 266
+        },
+        "drive": {
+          "status": "not_attempted",
+          "truth": 76
+        },
+        "isolation": {
+          "status": "not_attempted",
+          "truth": 12
+        },
+        "post": {
+          "status": "not_attempted",
+          "truth": 11
+        },
+        "closeout": {
+          "status": "not_attempted",
+          "truth": 64
+        }
+      },
+      "complete_possessions": {
+        "status": "scored",
+        "truth": 173,
+        "window_seconds": 2.0,
+        "action_types": [
+          "pass",
+          "shot",
+          "rebound",
+          "turnover",
+          "foul"
+        ],
+        "requires_split": true,
+        "split_correct": 0.5723,
+        "all_actions_found": 0.4393,
+        "complete": 0.2543,
+        "all_found_by_type": {
+          "pass": 0.6541,
+          "shot": 0.7852,
+          "rebound": 0.6364,
+          "turnover": 0.6098,
+          "foul": 0.7368
+        }
+      }
+    },
+    "179612": {
+      "possessions": {
+        "status": "scored",
+        "truth": 153,
+        "detected": 151,
+        "matched": 71,
+        "precision": 0.4702,
+        "recall": 0.4641,
+        "f1": 0.4671,
+        "frame_team_accuracy": 0.9011,
+        "mean_iou": 0.9077,
+        "boundary_error_s": {
+          "start": {
+            "n": 71,
+            "mean_abs_s": 2.3797,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 5.8,
+            "mse_s2": 54.7889,
+            "rmse_s": 7.402,
+            "mean_signed_s": 0.4586,
+            "within_0.5s": 0.7183,
+            "within_1s": 0.7324
+          },
+          "end": {
+            "n": 71,
+            "mean_abs_s": 2.8389,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 4.24,
+            "mse_s2": 76.5934,
+            "rmse_s": 8.7518,
+            "mean_signed_s": -0.8828,
+            "within_0.5s": 0.7324,
+            "within_1s": 0.7746
+          }
+        }
+      },
+      "ball_handler": {
+        "status": "scored",
+        "frames": 58558,
+        "frames_in_touch": 46357,
+        "frame_accuracy": 0.77,
+        "in_touch_accuracy": 0.7844,
+        "no_ball_accuracy": 0.7152,
+        "wrong_teammate_rate": 0.0101,
+        "wrong_team_rate": 0.0081,
+        "no_handler_rate": 0.1973
+      },
+      "actions": {
+        "pass": {
+          "status": "scored",
+          "truth": 512,
+          "detected": 558,
+          "tp": 415,
+          "fp": 143,
+          "fn": 97,
+          "precision": 0.7437,
+          "recall": 0.8105,
+          "f1": 0.7757,
+          "strict_recall": 0.791,
+          "timing": {
+            "n": 415,
+            "mean_abs_s": 0.1237,
+            "median_abs_s": 0.08,
+            "p90_abs_s": 0.28,
+            "mse_s2": 0.0435,
+            "rmse_s": 0.2087,
+            "mean_signed_s": -0.0662,
+            "within_0.5s": 0.9494,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 415,
+            "mean": 2.9064,
+            "median": 2.6537,
+            "p90": 3.22
+          },
+          "player_accuracy": 0.9759,
+          "player2_accuracy": 0.9337,
+          "subtype_accuracy": 0.0,
+          "attributable": {
+            "truth": 512,
+            "tp": 415,
+            "recall": 0.8105
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "inbounds": {
+              "truth": 74,
+              "tp": 49,
+              "recall": 0.6622
+            },
+            "not_inbounds": {
+              "truth": 438,
+              "tp": 366,
+              "recall": 0.8356
+            },
+            "handoff": {
+              "truth": 46,
+              "tp": 37,
+              "recall": 0.8043
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.7364,
+            "1": 0.7757,
+            "2": 0.815
+          }
+        },
+        "shot": {
+          "status": "scored",
+          "truth": 145,
+          "detected": 124,
+          "tp": 116,
+          "fp": 8,
+          "fn": 29,
+          "precision": 0.9355,
+          "recall": 0.8,
+          "f1": 0.8625,
+          "strict_recall": 0.8,
+          "timing": {
+            "n": 116,
+            "mean_abs_s": 0.0759,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 0.16,
+            "mse_s2": 0.0186,
+            "rmse_s": 0.1365,
+            "mean_signed_s": -0.0345,
+            "within_0.5s": 0.9914,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 114,
+            "mean": 0.5485,
+            "median": 0.1209,
+            "p90": 1.5885
+          },
+          "player_accuracy": 0.9914,
+          "attributable": {
+            "truth": 145,
+            "tp": 116,
+            "recall": 0.8
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "made": {
+              "truth": 64,
+              "tp": 50,
+              "recall": 0.7812
+            },
+            "missed": {
+              "truth": 81,
+              "tp": 66,
+              "recall": 0.8148
+            },
+            "fouled": {
+              "truth": 12,
+              "tp": 9,
+              "recall": 0.75
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.855,
+            "1": 0.8625,
+            "2": 0.8699
+          }
+        },
+        "rebound": {
+          "status": "scored",
+          "truth": 69,
+          "detected": 67,
+          "tp": 46,
+          "fp": 21,
+          "fn": 23,
+          "precision": 0.6866,
+          "recall": 0.6667,
+          "f1": 0.6765,
+          "strict_recall": 0.6522,
+          "timing": {
+            "n": 46,
+            "mean_abs_s": 0.4191,
+            "median_abs_s": 0.38,
+            "p90_abs_s": 0.8,
+            "mse_s2": 0.2314,
+            "rmse_s": 0.481,
+            "mean_signed_s": 0.1704,
+            "within_0.5s": 0.7609,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 45,
+            "mean": 3.3202,
+            "median": 2.8588,
+            "p90": 6.548
+          },
+          "player_accuracy": 0.9778,
+          "subtype_accuracy": 0.9565,
+          "attributable": {
+            "truth": 61,
+            "tp": 45,
+            "recall": 0.7377
+          },
+          "team_events": {
+            "truth": 8,
+            "tp": 1,
+            "recall": 0.125
+          },
+          "subsets": {
+            "offensive": {
+              "truth": 21,
+              "tp": 12,
+              "recall": 0.5714
+            },
+            "defensive": {
+              "truth": 48,
+              "tp": 34,
+              "recall": 0.7083
+            },
+            "after_free_throw": {
+              "truth": 2,
+              "tp": 0,
+              "recall": 0.0
+            }
+          },
+          "average_precision": 0.5865,
+          "f1_by_window": {
+            "0.5": 0.5147,
+            "1": 0.6765,
+            "2": 0.7647
+          }
+        },
+        "turnover": {
+          "status": "scored",
+          "truth": 22,
+          "detected": 20,
+          "tp": 11,
+          "fp": 9,
+          "fn": 11,
+          "precision": 0.55,
+          "recall": 0.5,
+          "f1": 0.5238,
+          "strict_recall": 0.5,
+          "timing": {
+            "n": 11,
+            "mean_abs_s": 0.2218,
+            "median_abs_s": 0.2,
+            "p90_abs_s": 0.4,
+            "mse_s2": 0.0813,
+            "rmse_s": 0.2851,
+            "mean_signed_s": -0.2218,
+            "within_0.5s": 0.9091,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 11,
+            "mean": 1.2517,
+            "median": 0.6725,
+            "p90": 2.0658
+          },
+          "player_accuracy": 1.0,
+          "player2_accuracy": 1.0,
+          "attributable": {
+            "truth": 22,
+            "tp": 11,
+            "recall": 0.5
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "f1_by_window": {
+            "0.5": 0.4762,
+            "1": 0.5238,
+            "2": 0.7619
+          }
+        },
+        "foul": {
+          "status": "scored",
+          "truth": 45,
+          "detected": 39,
+          "tp": 29,
+          "fp": 10,
+          "fn": 16,
+          "precision": 0.7436,
+          "recall": 0.6444,
+          "f1": 0.6905,
+          "strict_recall": 0.6444,
+          "timing": {
+            "n": 29,
+            "mean_abs_s": 0.5752,
+            "median_abs_s": 0.6,
+            "p90_abs_s": 0.92,
+            "mse_s2": 0.4019,
+            "rmse_s": 0.634,
+            "mean_signed_s": 0.5614,
+            "within_0.5s": 0.3448,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 28,
+            "mean": 2.4709,
+            "median": 1.9591,
+            "p90": 5.0778
+          },
+          "player_accuracy": 1.0,
+          "player2_accuracy": 1.0,
+          "subtype_accuracy": 0.7931,
+          "attributable": {
+            "truth": 45,
+            "tp": 29,
+            "recall": 0.6444
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "shooting": {
+              "truth": 12,
+              "tp": 6,
+              "recall": 0.5
+            },
+            "personal": {
+              "truth": 29,
+              "tp": 21,
+              "recall": 0.7241
+            },
+            "offensive": {
+              "truth": 3,
+              "tp": 2,
+              "recall": 0.6667
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.2381,
+            "1": 0.6905,
+            "2": 0.8096
+          }
+        },
+        "screen": {
+          "status": "not_attempted",
+          "truth": 251
+        },
+        "drive": {
+          "status": "not_attempted",
+          "truth": 65
+        },
+        "isolation": {
+          "status": "not_attempted",
+          "truth": 21
+        },
+        "post": {
+          "status": "not_attempted",
+          "truth": 7
+        },
+        "closeout": {
+          "status": "not_attempted",
+          "truth": 71
+        }
+      },
+      "complete_possessions": {
+        "status": "scored",
+        "truth": 153,
+        "window_seconds": 2.0,
+        "action_types": [
+          "pass",
+          "shot",
+          "rebound",
+          "turnover",
+          "foul"
+        ],
+        "requires_split": true,
+        "split_correct": 0.4641,
+        "all_actions_found": 0.4314,
+        "complete": 0.2288,
+        "all_found_by_type": {
+          "pass": 0.5493,
+          "shot": 0.7984,
+          "rebound": 0.6988,
+          "turnover": 0.7059,
+          "foul": 0.7436
+        }
+      }
+    },
+    "184439": {
+      "possessions": {
+        "status": "scored",
+        "truth": 159,
+        "detected": 154,
+        "matched": 82,
+        "precision": 0.5325,
+        "recall": 0.5157,
+        "f1": 0.524,
+        "frame_team_accuracy": 0.9407,
+        "mean_iou": 0.9253,
+        "boundary_error_s": {
+          "start": {
+            "n": 82,
+            "mean_abs_s": 1.0537,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 2.408,
+            "mse_s2": 14.954,
+            "rmse_s": 3.867,
+            "mean_signed_s": -0.4107,
+            "within_0.5s": 0.8171,
+            "within_1s": 0.8415
+          },
+          "end": {
+            "n": 82,
+            "mean_abs_s": 3.1356,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 2.444,
+            "mse_s2": 139.3517,
+            "rmse_s": 11.8047,
+            "mean_signed_s": -1.5054,
+            "within_0.5s": 0.7927,
+            "within_1s": 0.8415
+          }
+        }
+      },
+      "ball_handler": {
+        "status": "scored",
+        "frames": 57674,
+        "frames_in_touch": 46377,
+        "frame_accuracy": 0.7846,
+        "in_touch_accuracy": 0.806,
+        "no_ball_accuracy": 0.6966,
+        "wrong_teammate_rate": 0.0126,
+        "wrong_team_rate": 0.0055,
+        "no_handler_rate": 0.1759
+      },
+      "actions": {
+        "pass": {
+          "status": "scored",
+          "truth": 420,
+          "detected": 474,
+          "tp": 342,
+          "fp": 132,
+          "fn": 78,
+          "precision": 0.7215,
+          "recall": 0.8143,
+          "f1": 0.7651,
+          "strict_recall": 0.7857,
+          "timing": {
+            "n": 342,
+            "mean_abs_s": 0.1292,
+            "median_abs_s": 0.08,
+            "p90_abs_s": 0.28,
+            "mse_s2": 0.0493,
+            "rmse_s": 0.222,
+            "mean_signed_s": -0.0527,
+            "within_0.5s": 0.9444,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 342,
+            "mean": 3.0438,
+            "median": 2.6926,
+            "p90": 3.5498
+          },
+          "player_accuracy": 0.9561,
+          "player2_accuracy": 0.9284,
+          "subtype_accuracy": 0.0,
+          "attributable": {
+            "truth": 420,
+            "tp": 342,
+            "recall": 0.8143
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "inbounds": {
+              "truth": 66,
+              "tp": 40,
+              "recall": 0.6061
+            },
+            "not_inbounds": {
+              "truth": 354,
+              "tp": 302,
+              "recall": 0.8531
+            },
+            "handoff": {
+              "truth": 44,
+              "tp": 37,
+              "recall": 0.8409
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.7226,
+            "1": 0.7651,
+            "2": 0.7897
+          }
+        },
+        "shot": {
+          "status": "scored",
+          "truth": 140,
+          "detected": 132,
+          "tp": 123,
+          "fp": 9,
+          "fn": 17,
+          "precision": 0.9318,
+          "recall": 0.8786,
+          "f1": 0.9044,
+          "strict_recall": 0.8714,
+          "timing": {
+            "n": 123,
+            "mean_abs_s": 0.0907,
+            "median_abs_s": 0.08,
+            "p90_abs_s": 0.192,
+            "mse_s2": 0.0204,
+            "rmse_s": 0.1429,
+            "mean_signed_s": -0.042,
+            "within_0.5s": 0.9837,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 123,
+            "mean": 0.7499,
+            "median": 0.3612,
+            "p90": 1.7395
+          },
+          "player_accuracy": 0.9837,
+          "attributable": {
+            "truth": 140,
+            "tp": 123,
+            "recall": 0.8786
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "made": {
+              "truth": 60,
+              "tp": 53,
+              "recall": 0.8833
+            },
+            "missed": {
+              "truth": 80,
+              "tp": 70,
+              "recall": 0.875
+            },
+            "fouled": {
+              "truth": 15,
+              "tp": 13,
+              "recall": 0.8667
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.8897,
+            "1": 0.9044,
+            "2": 0.9192
+          }
+        },
+        "rebound": {
+          "status": "scored",
+          "truth": 66,
+          "detected": 64,
+          "tp": 50,
+          "fp": 14,
+          "fn": 16,
+          "precision": 0.7812,
+          "recall": 0.7576,
+          "f1": 0.7692,
+          "strict_recall": 0.7424,
+          "timing": {
+            "n": 50,
+            "mean_abs_s": 0.3672,
+            "median_abs_s": 0.32,
+            "p90_abs_s": 0.724,
+            "mse_s2": 0.1835,
+            "rmse_s": 0.4283,
+            "mean_signed_s": 0.2552,
+            "within_0.5s": 0.78,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 50,
+            "mean": 3.193,
+            "median": 2.8038,
+            "p90": 5.1193
+          },
+          "player_accuracy": 0.98,
+          "subtype_accuracy": 0.96,
+          "attributable": {
+            "truth": 64,
+            "tp": 50,
+            "recall": 0.7812
+          },
+          "team_events": {
+            "truth": 2,
+            "tp": 0,
+            "recall": 0.0
+          },
+          "subsets": {
+            "offensive": {
+              "truth": 19,
+              "tp": 11,
+              "recall": 0.5789
+            },
+            "defensive": {
+              "truth": 47,
+              "tp": 39,
+              "recall": 0.8298
+            },
+            "after_free_throw": {
+              "truth": 1,
+              "tp": 0,
+              "recall": 0.0
+            }
+          },
+          "average_precision": 0.6238,
+          "f1_by_window": {
+            "0.5": 0.6,
+            "1": 0.7692,
+            "2": 0.8769
+          }
+        },
+        "turnover": {
+          "status": "scored",
+          "truth": 23,
+          "detected": 19,
+          "tp": 12,
+          "fp": 7,
+          "fn": 11,
+          "precision": 0.6316,
+          "recall": 0.5217,
+          "f1": 0.5714,
+          "strict_recall": 0.5217,
+          "timing": {
+            "n": 12,
+            "mean_abs_s": 0.31,
+            "median_abs_s": 0.1,
+            "p90_abs_s": 0.788,
+            "mse_s2": 0.1873,
+            "rmse_s": 0.4328,
+            "mean_signed_s": -0.31,
+            "within_0.5s": 0.6667,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 10,
+            "mean": 2.4053,
+            "median": 0.7195,
+            "p90": 5.1747
+          },
+          "player_accuracy": 0.9,
+          "player2_accuracy": 1.0,
+          "attributable": {
+            "truth": 20,
+            "tp": 10,
+            "recall": 0.5
+          },
+          "team_events": {
+            "truth": 3,
+            "tp": 2,
+            "recall": 0.6667
+          },
+          "f1_by_window": {
+            "0.5": 0.381,
+            "1": 0.5714,
+            "2": 0.7143
+          }
+        },
+        "foul": {
+          "status": "scored",
+          "truth": 54,
+          "detected": 48,
+          "tp": 38,
+          "fp": 10,
+          "fn": 16,
+          "precision": 0.7917,
+          "recall": 0.7037,
+          "f1": 0.7451,
+          "strict_recall": 0.7037,
+          "timing": {
+            "n": 38,
+            "mean_abs_s": 0.4116,
+            "median_abs_s": 0.32,
+            "p90_abs_s": 0.8,
+            "mse_s2": 0.2446,
+            "rmse_s": 0.4946,
+            "mean_signed_s": 0.34,
+            "within_0.5s": 0.6316,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 38,
+            "mean": 2.3445,
+            "median": 1.574,
+            "p90": 5.1847
+          },
+          "player_accuracy": 1.0,
+          "player2_accuracy": 1.0,
+          "subtype_accuracy": 0.8158,
+          "attributable": {
+            "truth": 54,
+            "tp": 38,
+            "recall": 0.7037
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "shooting": {
+              "truth": 20,
+              "tp": 13,
+              "recall": 0.65
+            },
+            "personal": {
+              "truth": 29,
+              "tp": 22,
+              "recall": 0.7586
+            },
+            "offensive": {
+              "truth": 5,
+              "tp": 3,
+              "recall": 0.6
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.4706,
+            "1": 0.7451,
+            "2": 0.8431
+          }
+        },
+        "screen": {
+          "status": "not_attempted",
+          "truth": 296
+        },
+        "drive": {
+          "status": "not_attempted",
+          "truth": 66
+        },
+        "isolation": {
+          "status": "not_attempted",
+          "truth": 7
+        },
+        "post": {
+          "status": "not_attempted",
+          "truth": 8
+        },
+        "closeout": {
+          "status": "not_attempted",
+          "truth": 43
+        }
+      },
+      "complete_possessions": {
+        "status": "scored",
+        "truth": 159,
+        "window_seconds": 2.0,
+        "action_types": [
+          "pass",
+          "shot",
+          "rebound",
+          "turnover",
+          "foul"
+        ],
+        "requires_split": true,
+        "split_correct": 0.5157,
+        "all_actions_found": 0.5094,
+        "complete": 0.2642,
+        "all_found_by_type": {
+          "pass": 0.5594,
+          "shot": 0.8843,
+          "rebound": 0.8667,
+          "turnover": 0.6176,
+          "foul": 0.7843
+        }
+      }
+    },
+    "188630": {
+      "possessions": {
+        "status": "scored",
+        "truth": 143,
+        "detected": 140,
+        "matched": 89,
+        "precision": 0.6357,
+        "recall": 0.6224,
+        "f1": 0.629,
+        "frame_team_accuracy": 0.9494,
+        "mean_iou": 0.933,
+        "boundary_error_s": {
+          "start": {
+            "n": 89,
+            "mean_abs_s": 0.711,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 1.928,
+            "mse_s2": 6.3458,
+            "rmse_s": 2.5191,
+            "mean_signed_s": -0.3667,
+            "within_0.5s": 0.8427,
+            "within_1s": 0.8539
+          },
+          "end": {
+            "n": 89,
+            "mean_abs_s": 1.751,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 2.4,
+            "mse_s2": 47.0728,
+            "rmse_s": 6.861,
+            "mean_signed_s": -1.1802,
+            "within_0.5s": 0.8427,
+            "within_1s": 0.8427
+          }
+        }
+      },
+      "ball_handler": {
+        "status": "scored",
+        "frames": 58174,
+        "frames_in_touch": 47277,
+        "frame_accuracy": 0.8214,
+        "in_touch_accuracy": 0.846,
+        "no_ball_accuracy": 0.7145,
+        "wrong_teammate_rate": 0.0104,
+        "wrong_team_rate": 0.0032,
+        "no_handler_rate": 0.1403
+      },
+      "actions": {
+        "pass": {
+          "status": "scored",
+          "truth": 442,
+          "detected": 477,
+          "tp": 377,
+          "fp": 100,
+          "fn": 65,
+          "precision": 0.7904,
+          "recall": 0.8529,
+          "f1": 0.8205,
+          "strict_recall": 0.8416,
+          "timing": {
+            "n": 377,
+            "mean_abs_s": 0.1184,
+            "median_abs_s": 0.08,
+            "p90_abs_s": 0.24,
+            "mse_s2": 0.0382,
+            "rmse_s": 0.1955,
+            "mean_signed_s": -0.0613,
+            "within_0.5s": 0.9576,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 377,
+            "mean": 3.1599,
+            "median": 2.6316,
+            "p90": 3.1718
+          },
+          "player_accuracy": 0.9841,
+          "player2_accuracy": 0.9563,
+          "subtype_accuracy": 0.0,
+          "attributable": {
+            "truth": 442,
+            "tp": 377,
+            "recall": 0.8529
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "inbounds": {
+              "truth": 61,
+              "tp": 41,
+              "recall": 0.6721
+            },
+            "not_inbounds": {
+              "truth": 381,
+              "tp": 336,
+              "recall": 0.8819
+            },
+            "handoff": {
+              "truth": 36,
+              "tp": 35,
+              "recall": 0.9722
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.7856,
+            "1": 0.8205,
+            "2": 0.8335
+          }
+        },
+        "shot": {
+          "status": "scored",
+          "truth": 133,
+          "detected": 126,
+          "tp": 117,
+          "fp": 9,
+          "fn": 16,
+          "precision": 0.9286,
+          "recall": 0.8797,
+          "f1": 0.9035,
+          "strict_recall": 0.8722,
+          "timing": {
+            "n": 117,
+            "mean_abs_s": 0.0868,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 0.176,
+            "mse_s2": 0.0168,
+            "rmse_s": 0.1297,
+            "mean_signed_s": -0.0438,
+            "within_0.5s": 0.9829,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 114,
+            "mean": 0.6473,
+            "median": 0.2617,
+            "p90": 1.7649
+          },
+          "player_accuracy": 0.9744,
+          "attributable": {
+            "truth": 133,
+            "tp": 117,
+            "recall": 0.8797
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "made": {
+              "truth": 56,
+              "tp": 51,
+              "recall": 0.9107
+            },
+            "missed": {
+              "truth": 77,
+              "tp": 66,
+              "recall": 0.8571
+            },
+            "fouled": {
+              "truth": 16,
+              "tp": 14,
+              "recall": 0.875
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.8881,
+            "1": 0.9035,
+            "2": 0.9344
+          }
+        },
+        "rebound": {
+          "status": "scored",
+          "truth": 62,
+          "detected": 61,
+          "tp": 50,
+          "fp": 11,
+          "fn": 12,
+          "precision": 0.8197,
+          "recall": 0.8065,
+          "f1": 0.813,
+          "strict_recall": 0.8065,
+          "timing": {
+            "n": 50,
+            "mean_abs_s": 0.3832,
+            "median_abs_s": 0.36,
+            "p90_abs_s": 0.604,
+            "mse_s2": 0.1893,
+            "rmse_s": 0.4351,
+            "mean_signed_s": 0.2248,
+            "within_0.5s": 0.78,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 49,
+            "mean": 3.3623,
+            "median": 3.2036,
+            "p90": 5.8216
+          },
+          "player_accuracy": 1.0,
+          "subtype_accuracy": 1.0,
+          "attributable": {
+            "truth": 56,
+            "tp": 50,
+            "recall": 0.8929
+          },
+          "team_events": {
+            "truth": 6,
+            "tp": 0,
+            "recall": 0.0
+          },
+          "subsets": {
+            "offensive": {
+              "truth": 17,
+              "tp": 11,
+              "recall": 0.6471
+            },
+            "defensive": {
+              "truth": 45,
+              "tp": 39,
+              "recall": 0.8667
+            },
+            "after_free_throw": {
+              "truth": 2,
+              "tp": 1,
+              "recall": 0.5
+            }
+          },
+          "average_precision": 0.777,
+          "f1_by_window": {
+            "0.5": 0.6341,
+            "1": 0.813,
+            "2": 0.878
+          }
+        },
+        "turnover": {
+          "status": "scored",
+          "truth": 18,
+          "detected": 16,
+          "tp": 11,
+          "fp": 5,
+          "fn": 7,
+          "precision": 0.6875,
+          "recall": 0.6111,
+          "f1": 0.6471,
+          "strict_recall": 0.6111,
+          "timing": {
+            "n": 11,
+            "mean_abs_s": 0.2364,
+            "median_abs_s": 0.16,
+            "p90_abs_s": 0.44,
+            "mse_s2": 0.09,
+            "rmse_s": 0.3001,
+            "mean_signed_s": -0.0909,
+            "within_0.5s": 0.9091,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 10,
+            "mean": 1.338,
+            "median": 0.7029,
+            "p90": 2.518
+          },
+          "player_accuracy": 1.0,
+          "player2_accuracy": 1.0,
+          "attributable": {
+            "truth": 17,
+            "tp": 10,
+            "recall": 0.5882
+          },
+          "team_events": {
+            "truth": 1,
+            "tp": 1,
+            "recall": 1.0
+          },
+          "f1_by_window": {
+            "0.5": 0.5883,
+            "1": 0.6471,
+            "2": 0.8235
+          }
+        },
+        "foul": {
+          "status": "scored",
+          "truth": 40,
+          "detected": 37,
+          "tp": 27,
+          "fp": 10,
+          "fn": 13,
+          "precision": 0.7297,
+          "recall": 0.675,
+          "f1": 0.7013,
+          "strict_recall": 0.675,
+          "timing": {
+            "n": 27,
+            "mean_abs_s": 0.4874,
+            "median_abs_s": 0.4,
+            "p90_abs_s": 0.8,
+            "mse_s2": 0.3179,
+            "rmse_s": 0.5638,
+            "mean_signed_s": 0.4607,
+            "within_0.5s": 0.5185,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 27,
+            "mean": 2.4147,
+            "median": 2.2869,
+            "p90": 5.2922
+          },
+          "player_accuracy": 1.0,
+          "player2_accuracy": 1.0,
+          "subtype_accuracy": 0.8889,
+          "attributable": {
+            "truth": 40,
+            "tp": 27,
+            "recall": 0.675
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "shooting": {
+              "truth": 16,
+              "tp": 8,
+              "recall": 0.5
+            },
+            "personal": {
+              "truth": 22,
+              "tp": 17,
+              "recall": 0.7727
+            },
+            "offensive": {
+              "truth": 2,
+              "tp": 2,
+              "recall": 1.0
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.3636,
+            "1": 0.7013,
+            "2": 0.9351
+          }
+        },
+        "screen": {
+          "status": "not_attempted",
+          "truth": 250
+        },
+        "drive": {
+          "status": "not_attempted",
+          "truth": 62
+        },
+        "isolation": {
+          "status": "not_attempted",
+          "truth": 22
+        },
+        "post": {
+          "status": "not_attempted",
+          "truth": 24
+        },
+        "closeout": {
+          "status": "not_attempted",
+          "truth": 53
+        }
+      },
+      "complete_possessions": {
+        "status": "scored",
+        "truth": 143,
+        "window_seconds": 2.0,
+        "action_types": [
+          "pass",
+          "shot",
+          "rebound",
+          "turnover",
+          "foul"
+        ],
+        "requires_split": true,
+        "split_correct": 0.6224,
+        "all_actions_found": 0.5594,
+        "complete": 0.3846,
+        "all_found_by_type": {
+          "pass": 0.6288,
+          "shot": 0.906,
+          "rebound": 0.8519,
+          "turnover": 0.7586,
+          "foul": 0.8947
+        }
+      }
+    },
+    "191313": {
+      "possessions": {
+        "status": "scored",
+        "truth": 153,
+        "detected": 152,
+        "matched": 93,
+        "precision": 0.6118,
+        "recall": 0.6078,
+        "f1": 0.6098,
+        "frame_team_accuracy": 0.9535,
+        "mean_iou": 0.9422,
+        "boundary_error_s": {
+          "start": {
+            "n": 93,
+            "mean_abs_s": 1.3729,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 2.376,
+            "mse_s2": 36.5198,
+            "rmse_s": 6.0432,
+            "mean_signed_s": -0.7131,
+            "within_0.5s": 0.828,
+            "within_1s": 0.828
+          },
+          "end": {
+            "n": 93,
+            "mean_abs_s": 0.7832,
+            "median_abs_s": 0.04,
+            "p90_abs_s": 1.792,
+            "mse_s2": 13.7806,
+            "rmse_s": 3.7122,
+            "mean_signed_s": -0.249,
+            "within_0.5s": 0.8495,
+            "within_1s": 0.8817
+          }
+        }
+      },
+      "ball_handler": {
+        "status": "scored",
+        "frames": 57322,
+        "frames_in_touch": 44185,
+        "frame_accuracy": 0.7727,
+        "in_touch_accuracy": 0.8086,
+        "no_ball_accuracy": 0.6521,
+        "wrong_teammate_rate": 0.0148,
+        "wrong_team_rate": 0.0055,
+        "no_handler_rate": 0.1711
+      },
+      "actions": {
+        "pass": {
+          "status": "scored",
+          "truth": 404,
+          "detected": 483,
+          "tp": 337,
+          "fp": 146,
+          "fn": 67,
+          "precision": 0.6977,
+          "recall": 0.8342,
+          "f1": 0.7599,
+          "strict_recall": 0.797,
+          "timing": {
+            "n": 337,
+            "mean_abs_s": 0.1145,
+            "median_abs_s": 0.08,
+            "p90_abs_s": 0.256,
+            "mse_s2": 0.0356,
+            "rmse_s": 0.1887,
+            "mean_signed_s": -0.0637,
+            "within_0.5s": 0.9644,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 337,
+            "mean": 2.7291,
+            "median": 2.617,
+            "p90": 3.3378
+          },
+          "player_accuracy": 0.9496,
+          "player2_accuracy": 0.9052,
+          "subtype_accuracy": 0.0,
+          "attributable": {
+            "truth": 404,
+            "tp": 337,
+            "recall": 0.8342
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "inbounds": {
+              "truth": 61,
+              "tp": 42,
+              "recall": 0.6885
+            },
+            "not_inbounds": {
+              "truth": 343,
+              "tp": 295,
+              "recall": 0.8601
+            },
+            "handoff": {
+              "truth": 27,
+              "tp": 24,
+              "recall": 0.8889
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.7328,
+            "1": 0.7599,
+            "2": 0.7847
+          }
+        },
+        "shot": {
+          "status": "scored",
+          "truth": 140,
+          "detected": 134,
+          "tp": 129,
+          "fp": 5,
+          "fn": 11,
+          "precision": 0.9627,
+          "recall": 0.9214,
+          "f1": 0.9416,
+          "strict_recall": 0.9214,
+          "timing": {
+            "n": 129,
+            "mean_abs_s": 0.0896,
+            "median_abs_s": 0.08,
+            "p90_abs_s": 0.2,
+            "mse_s2": 0.0188,
+            "rmse_s": 0.137,
+            "mean_signed_s": -0.022,
+            "within_0.5s": 0.9922,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 128,
+            "mean": 0.546,
+            "median": 0.2148,
+            "p90": 1.5696
+          },
+          "player_accuracy": 1.0,
+          "attributable": {
+            "truth": 140,
+            "tp": 129,
+            "recall": 0.9214
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "made": {
+              "truth": 66,
+              "tp": 62,
+              "recall": 0.9394
+            },
+            "missed": {
+              "truth": 74,
+              "tp": 67,
+              "recall": 0.9054
+            },
+            "fouled": {
+              "truth": 13,
+              "tp": 10,
+              "recall": 0.7692
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.9343,
+            "1": 0.9416,
+            "2": 0.9635
+          }
+        },
+        "rebound": {
+          "status": "scored",
+          "truth": 72,
+          "detected": 64,
+          "tp": 50,
+          "fp": 14,
+          "fn": 22,
+          "precision": 0.7812,
+          "recall": 0.6944,
+          "f1": 0.7352,
+          "strict_recall": 0.6667,
+          "timing": {
+            "n": 50,
+            "mean_abs_s": 0.3728,
+            "median_abs_s": 0.36,
+            "p90_abs_s": 0.684,
+            "mse_s2": 0.1811,
+            "rmse_s": 0.4256,
+            "mean_signed_s": 0.1264,
+            "within_0.5s": 0.78,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 49,
+            "mean": 3.6812,
+            "median": 3.4173,
+            "p90": 6.1773
+          },
+          "player_accuracy": 0.9592,
+          "subtype_accuracy": 0.92,
+          "attributable": {
+            "truth": 69,
+            "tp": 49,
+            "recall": 0.7101
+          },
+          "team_events": {
+            "truth": 3,
+            "tp": 1,
+            "recall": 0.3333
+          },
+          "subsets": {
+            "offensive": {
+              "truth": 24,
+              "tp": 16,
+              "recall": 0.6667
+            },
+            "defensive": {
+              "truth": 48,
+              "tp": 34,
+              "recall": 0.7083
+            },
+            "after_free_throw": {
+              "truth": 11,
+              "tp": 1,
+              "recall": 0.0909
+            }
+          },
+          "average_precision": 0.5717,
+          "f1_by_window": {
+            "0.5": 0.5736,
+            "1": 0.7352,
+            "2": 0.8088
+          }
+        },
+        "turnover": {
+          "status": "scored",
+          "truth": 24,
+          "detected": 18,
+          "tp": 10,
+          "fp": 8,
+          "fn": 14,
+          "precision": 0.5556,
+          "recall": 0.4167,
+          "f1": 0.4762,
+          "strict_recall": 0.4167,
+          "timing": {
+            "n": 10,
+            "mean_abs_s": 0.328,
+            "median_abs_s": 0.4,
+            "p90_abs_s": 0.576,
+            "mse_s2": 0.1578,
+            "rmse_s": 0.3972,
+            "mean_signed_s": -0.328,
+            "within_0.5s": 0.8,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 10,
+            "mean": 2.0008,
+            "median": 1.6711,
+            "p90": 3.9951
+          },
+          "player_accuracy": 1.0,
+          "player2_accuracy": 1.0,
+          "attributable": {
+            "truth": 23,
+            "tp": 10,
+            "recall": 0.4348
+          },
+          "team_events": {
+            "truth": 1,
+            "tp": 0,
+            "recall": 0.0
+          },
+          "f1_by_window": {
+            "0.5": 0.3809,
+            "1": 0.4762,
+            "2": 0.6191
+          }
+        },
+        "foul": {
+          "status": "scored",
+          "truth": 48,
+          "detected": 42,
+          "tp": 27,
+          "fp": 15,
+          "fn": 21,
+          "precision": 0.6429,
+          "recall": 0.5625,
+          "f1": 0.6,
+          "strict_recall": 0.5625,
+          "timing": {
+            "n": 27,
+            "mean_abs_s": 0.5156,
+            "median_abs_s": 0.52,
+            "p90_abs_s": 0.752,
+            "mse_s2": 0.322,
+            "rmse_s": 0.5675,
+            "mean_signed_s": 0.5156,
+            "within_0.5s": 0.3704,
+            "within_1s": 1.0
+          },
+          "location_error_ft": {
+            "n": 27,
+            "mean": 2.7799,
+            "median": 2.3011,
+            "p90": 5.1317
+          },
+          "player_accuracy": 1.0,
+          "player2_accuracy": 1.0,
+          "subtype_accuracy": 0.8148,
+          "attributable": {
+            "truth": 48,
+            "tp": 27,
+            "recall": 0.5625
+          },
+          "team_events": {
+            "truth": 0,
+            "tp": 0,
+            "recall": null
+          },
+          "subsets": {
+            "shooting": {
+              "truth": 15,
+              "tp": 8,
+              "recall": 0.5333
+            },
+            "personal": {
+              "truth": 33,
+              "tp": 19,
+              "recall": 0.5758
+            },
+            "offensive": {
+              "truth": 0,
+              "tp": 0,
+              "recall": null
+            }
+          },
+          "f1_by_window": {
+            "0.5": 0.2222,
+            "1": 0.6,
+            "2": 0.8222
+          }
+        },
+        "screen": {
+          "status": "not_attempted",
+          "truth": 233
+        },
+        "drive": {
+          "status": "not_attempted",
+          "truth": 58
+        },
+        "isolation": {
+          "status": "not_attempted",
+          "truth": 23
+        },
+        "post": {
+          "status": "not_attempted",
+          "truth": 4
+        },
+        "closeout": {
+          "status": "not_attempted",
+          "truth": 64
+        }
+      },
+      "complete_possessions": {
+        "status": "scored",
+        "truth": 153,
+        "window_seconds": 2.0,
+        "action_types": [
+          "pass",
+          "shot",
+          "rebound",
+          "turnover",
+          "foul"
+        ],
+        "requires_split": true,
+        "split_correct": 0.6078,
+        "all_actions_found": 0.4771,
+        "complete": 0.3464,
+        "all_found_by_type": {
+          "pass": 0.6131,
+          "shot": 0.9512,
+          "rebound": 0.7126,
+          "turnover": 0.561,
+          "foul": 0.7273
+        }
+      }
+    }
+  }
+}

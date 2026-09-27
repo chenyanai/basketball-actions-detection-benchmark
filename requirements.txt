@@ -1,0 +1,6 @@
+numpy>=1.24
+pandas>=2.0
+tabulate>=0.9     # Markdown tables in the reports
+pyyaml>=6.0       # heuristic baseline settings
+matplotlib>=3.7   # only for `runner.py visualize`
+pillow>=10.0      # GIF writer for the visualizer

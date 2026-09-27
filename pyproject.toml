@@ -1,0 +1,12 @@
+# Tool settings only. The repo is used by cloning it: `pip install -r requirements.txt`, then `python runner.py`.
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 120
+extend-exclude = ["data", "runs"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]

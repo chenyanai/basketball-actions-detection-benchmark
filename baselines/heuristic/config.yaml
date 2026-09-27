@@ -1,0 +1,80 @@
+# Every threshold of the heuristic detector, and the only place their values live. Distances in feet, times in seconds.
+# To try other values, write a yaml with just the settings you change, under the same sections, and load it
+# with HeuristicConfig.from_yaml("mine.yaml"); every other setting comes from this file. `git checkout` restores it.
+
+frames:
+  pre_inbound_seconds: 1.0         # detectors see live play, plus this long before the clock restarts (the inbound pass)
+  backfill_shot_clock: true        # a blank shot clock takes the value it next displays
+
+actions:
+  possession_margin: 2.0           # detectors see a possession's frames plus this long on each side
+  early_shot_margin: 3.0           # a shot or rebound may be found this long before its possession starts
+  boundary_margin: 0.5             # a turnover or foul may be found this long outside its possession
+  duplicate_window: 1.5            # the same player's shot or rebound again within this is the same one
+
+possessions:
+  boundary_search_before: 6.0      # look this far before the play-by-play time for a shot-clock reset
+  boundary_search_after: 2.0
+  shot_clock_reset_jump: 5.0       # a jump this large between frames is a reset
+  min_snap_possession: 0.5       # a boundary is not snapped to a reset this close to the possession's start
+
+ball_handler:
+  handler_radius: 3.0              # a player this close to the ball controls it
+  time_gap_reset: 1.0              # forget the previous handler after a gap this long
+
+passes:
+  min_pass_interval: 0.3
+  repeat_pass_interval: 0.5       # the same passer and receiver again within this is one pass
+  max_shot_flight: 2.5             # handler changes during a shot's flight are not passes
+  shot_flight_low_ratio: 0.8       # near a shot, the ball above this share of shot_height counts as flight
+  shot_flight_low_window: 1.0      # "near a shot" for the rule above
+
+shots:
+  shot_height: 8.5                 # ball above this height is in flight
+  shot_proximity: 6.0              # shooter must be this close to the ball
+  shot_window: 5.0                 # search this far around the play-by-play time
+  tip_height: 5.0
+  tip_proximity: 8.0
+  tip_basket_radius: 10.0
+  tip_window_before: 3.5
+  tip_window_after: 1.5
+  release_walk_back_frames: 30
+  release_walk_forward_frames: 25
+  shot_rise_lookahead_frames: 25   # how far ahead to look for the ball rising after the shooter holds it
+  apex_max_distance: 3.0           # layups and dunks: walk forward while the shooter stays this close to the ball
+  apex_drop_tolerance: 0.05        # ... and the ball does not drop more than this
+  putback_before_rebound: 0.5      # a tip counts as a putback from this long before the offensive rebound
+  putback_after_rebound: 3.5       # ... to this long after it
+  putback_search_after: 1.25       # search this long after the rebound for the putback frame
+  putback_search_fallback: 0.25    # if nothing is found, search this close around the rebound
+
+rebounds:
+  rebound_window: 5.0              # search this long after the shot
+  rebound_peak_height: 8.0         # the ball must rise above this, then
+  rebound_possession_height: 6.0   # drop below this before anyone can rebound it
+  rebound_proximity: 5.0
+  rebound_proximity_relaxed: 8.0
+  rebound_min_frames: 3
+  rebound_hold_min_frames: 5       # offensive rebound: the rebounder holds the ball for this many frames
+  rebound_hold_min_span_frames: 11 # ... spread over at least this many frames
+  rebound_shot_match_window: 2.0   # a feed shot within this of a detected shot is the same shot
+  rebound_feed_shot_lookback: 3.0  # a shot known only from the feed may have happened this much earlier
+  rebound_shot_margin: 3.0         # the shot a rebound follows is at most rebound_window plus this before it
+  rebound_fallback_before: 5.0     # with no shot found, search this long before the feed time
+  rebound_fallback_after: 2.0      # ... and this long after it
+  rebound_fallback_delay: 0.5      # last resort: the rebound is this long after the shot
+  rebound_tip_window: 2.5          # a rebound the feed describes as a tip: search only this long after the shot
+  rebound_tip_height: 8.0          # ... with the ball below this
+  rebound_tip_basket_radius: 8.0   # ... and this close to a hoop
+
+turnovers:
+  bad_pass_lookback: 4.0           # how far back to look for the ball leaving the player's hands
+  lost_ball_lookback: 3.0
+  violation_lookback: 1.0
+  turnover_proximity: 5.0
+  turnover_window_after: 0.5       # search this long after the feed time too
+  turnover_max_ball_height: 8.0    # a ball higher than this is not in anyone's hands
+  clock_stopped_extra_lookback: 1.0  # violations: look this much further back for a stopped clock
+
+fouls:
+  foul_frame_window: 2.0           # a foul takes its place from the closest frame within this of the feed time
